@@ -6,22 +6,21 @@ import {useSelector} from 'react-redux';
 
 function MediaCard(props) {
     const loggedUser=useSelector((state)=>state.user.currentUser);
-    const [conversationName, setConversationName] = useState("");
+    const [conversationName, setConversationName] = useState(null);
   
     useEffect(()=>{
         const getConversationName = async ()=>{
           let k=""
-        if(loggedUser._id===props.message.members[0]){
-          console.log("0");
-          k = await userRequest.get(`/conversations/find/${props.message.members[1]}`);
-        }else{
-          console.log('1');
+          let temp=await props?.message
+        if(loggedUser._id === temp.members[1]){ 
           k = await userRequest.get(`/conversations/find/${props.message.members[0]}`);
+        }else{
+          k = await userRequest.get(`/conversations/find/${props.message.members[1]}`);
         }
-        setConversationName(k.data.username);
+        await setConversationName(k.data.username);
       }
       getConversationName()
-    },[props]);
+    },[props, loggedUser._id]);
   
     const handleChatId=()=>{
       props.childToParent(props.message._id);

@@ -48,10 +48,10 @@ const Product = () =>{
 
   const handleClick=async (id1, id2)=>{
     
-    console.log(id1, id2);
+    // console.log(id1, id2);
     const k = await {senderId:id1, receiverId:id2, product:id }
     const res = await userRequest.post(`/conversations/`, k);
-    console.log(res);
+    // console.log(res);
   }
 
     return(

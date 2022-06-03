@@ -68,7 +68,7 @@ const Board=()=>{
 
       const handleDetail= ()=>{
         setUser(loggedUser);
-        console.log(user);
+        // console.log(user);
       }
 
 

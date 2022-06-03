@@ -17,6 +17,7 @@ import SendIcon from '@mui/icons-material/Send';
 const Listing = () =>{
   const [conversations, setConversations] = useState([{}]);
   const [message, setMessage] = useState('');
+  const [nos, setNos] = useState(0);
   const [sendAct, setSendAct] = useState(false);
   const [chat, setChat] = useState([{}]);
   const loggedUser=useSelector((state)=>state.user.currentUser);
@@ -28,13 +29,15 @@ const Listing = () =>{
     setChatId(childdata);
   }
 
+  setInterval(()=>{setNos(Math.floor(Math.random() * 10))}, 10000);
+
   useEffect(()=>{
     const getConversations = async ()=>{
       const res = await userRequest.get(`/conversations/${loggedUser._id}`);
       setConversations(res.data);
     }
     getConversations()
-  },[]);
+  },[loggedUser._id]);
 
   useEffect(()=>{
     const getChats = async ()=>{
@@ -44,7 +47,9 @@ const Listing = () =>{
       }
     }
     getChats()
-  },[chatId, sendAct]);
+  },[chatId, nos, sendAct]);
+
+  // For AutoScroll Feature...
 
   useEffect(() => {
     if (messageEl) {
@@ -75,8 +80,8 @@ const Listing = () =>{
                                   Conversations
                 </Typography>
 
-                      {conversations.map((item, index) =><>
-                        <MediaCard message={item} key={index} childToParent={childToParent}/>
+                      {conversations.map((item) =><>
+                        <MediaCard message={item} key={item.id} childToParent={childToParent}/>
                       <hr />
                       </>
                        )}
@@ -95,7 +100,7 @@ const Listing = () =>{
                                   Messages
                 </Typography>
 
-                {(chat.length!==0)?<>{chat.map((item, index) =><> <ChatCard message={item} key={index} /></> )}</>:<ChatCard message={{text:"hello world more messages are coming select chats on left..."}} />}
+                {chat.map((item, index) =><ChatCard message={item} key={index} /> )}
                 
               </Box>
               <Box sx={{width: '67%', borderRightStyle:'ridge', float:'right' }}>
