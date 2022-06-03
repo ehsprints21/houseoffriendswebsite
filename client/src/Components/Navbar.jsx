@@ -1,0 +1,119 @@
+import '../App.css';
+import React, { useState,useEffect } from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from "react-router-dom";
+import {useSelector,useDispatch} from 'react-redux';
+import { Link } from 'react-router-dom';
+
+// -----------------external css used here---------------------
+
+
+const ResponsiveAppBar = () => {
+  const [logOption, setLogOption]=useState('Login')
+  const pages = [<Link className='navMenu' to='/sessions'>Products</Link>,<Link className='navMenu' to='/sessions'>Plots</Link>,<Link className='navMenu' to='/aboutUs'>About Us</Link>,<Link className='navMenu' to='/aboutUs'>Contact Us</Link> ,<Link className='navMenu' to='/login'>{logOption}</Link>];
+  
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  
+  const navigate = useNavigate();
+  const loggedUser=useSelector((state)=>state.user.currentUser);
+
+  useEffect( () => {
+    if (loggedUser) {
+      setLogOption("Profile");
+    }else{
+      setLogOption("Login");
+    }
+  }, []);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+  
+
+  return (
+    <AppBar position="sticky" sx={{backgroundColor:'#fff', paddingLeft:'10%', paddingRight:'10%'}}>
+      <Container maxWidth="xl">
+        <Toolbar>
+          <Typography
+            noWrap
+            component="div"
+            sx={{ mr: 2, height: '70px', display: { xs: 'none', md: 'flex' } }}
+          >
+          <a href='/'><img src='..\assets\Mylogo.jpeg' height='70px' alt='companyLogo'/></a>
+          </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, position: 'relative', right: '10%' }}>
+            {/*------------------------------------------------------------------------------------ hamburger button */}
+            <IconButton
+              size="large"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              sx={{color:"black"}}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+              dense='true'
+            >
+              {pages.map((page, index) => (
+                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center" >{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <Typography
+            variant="h1"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, height: '75px', position:'relative', bottom: "25px", display: { xs: 'flex', md: 'none' } }}
+          >
+            <a href='/'><img src='..\assets\Mylogo.jpeg' height='50px' alt='companyLogo'/></a>
+          </Typography>
+          <Box sx={{ flexGrow: 1, flexDirection: 'row-reverse' ,display: { xs: 'none', md: 'flex' } }}>
+            {pages.slice(0).reverse().map((page, index) => (
+              <Button
+                key={index}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'black', display: 'block', margin:'0','&:hover': {color: '#FFB923', backgroundColor:'inherit'} }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+};
+export default ResponsiveAppBar;

@@ -1,0 +1,43 @@
+import './App.css';
+import About from './Pages/About';
+import Sessions from './Pages/Sessions';
+import Product from './Pages/Product';
+import Home from './Pages/Home';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import SessionCreation from './Pages/SessionCreating';
+import SessionDeletion from './Pages/SessionDeletion';
+import Construction from './Pages/Construction';
+import ChatPage from './Pages/ChatPage';
+import AdminBoard from './Pages/AdminDashboard';
+import EditDetails from './Pages/EditDetails';
+import FileUpload from './Pages/FileUpload';
+
+import {Routes,Route} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+function App() {
+  const dispatch = useDispatch();
+    const loggeduser = useSelector((state)=>state.user.currentUser);
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/aboutUs" element={<About />} />
+        <Route path="/Product/:id" element={<Product />} />
+        <Route path="/sessions" element={<Sessions />} />
+        <Route path="/sessionsDelete" element={<SessionDeletion />} />
+        <Route path="/offerChats" element={<ChatPage />} />
+        <Route path="/sessionCreation" element={<SessionCreation />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/construction" element={<Construction />} />
+        <Route path="/adminPanel" element={<AdminBoard />} />
+        <Route path="/editDetails" element={<EditDetails />} />
+        <Route path="/fileUploads" element={<FileUpload />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
