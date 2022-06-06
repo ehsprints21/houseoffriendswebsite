@@ -32,7 +32,7 @@ const ResponsiveAppBar = () => {
     }else{
       setLogOption("Login");
     }
-  }, []);
+  }, [loggedUser]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -52,7 +52,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, height: '70px', display: { xs: 'none', md: 'flex' } }}
           >
-          <a href='/'><img src='..\assets\Mylogo.jpeg' height='70px' alt='companyLogo'/></a>
+          <a href='/'><img src='./assets/hoffr.png' height='70px' alt='companyLogo'/></a>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, position: 'relative', right: '10%' }}>
@@ -98,19 +98,32 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, height: '75px', position:'relative', bottom: "25px", display: { xs: 'flex', md: 'none' } }}
           >
-            <a href='/'><img src='..\assets\Mylogo.jpeg' height='50px' alt='companyLogo'/></a>
+            <a href='/'><img src='./assets/hoffr.png' height='50px' alt='companyLogo'/></a>
           </Typography>
-          <Box sx={{ flexGrow: 1, flexDirection: 'row-reverse' ,display: { xs: 'none', md: 'flex' } }}>
-            {pages.slice(0).reverse().map((page, index) => (
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, position:'relative', left: "75%"}}>
+              {pages.slice(4,5).reverse().map((page, index) => (
               <Button
                 key={index}
+                variant="outlined"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block', margin:'0','&:hover': {color: '#FFB923', backgroundColor:'inherit'} }}
+                sx={{ my: 2, textTransform: 'none', color: 'black', display: 'block', margin:'0','&:hover': {color: '#FFB923', backgroundColor:'inherit'} }}
               >
                 {page}
               </Button>
             ))}
           </Box>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, position:'relative', left: "15%"}}>
+              {pages.slice(0,4).map((page, index) => (
+                <Button
+                  key={index}
+                  
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, textTransform: 'none', color: 'black', display: 'block', margin:'0','&:hover': {color: '#FFB923', backgroundColor:'inherit'} }}
+                >
+                  {page}
+                </Button>
+              ))}
+            </Box>
         </Toolbar>
       </Container>
     </AppBar>

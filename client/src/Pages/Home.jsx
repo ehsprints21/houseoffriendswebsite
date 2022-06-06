@@ -115,48 +115,41 @@ const Home = () =>{
                     </Container>
                 </Grid>
 
-                        
-
-                <Grid item xs={12} md={12} sx={{margin:'4% 0'}}>
-                        <Typography
-                            variant='h4'
-                            component="span"
-                            sx={{ display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
-                            >
-                                How It Works
-                        </Typography>
+                <Grid item xs={12} md={12}>
+                    <Typography
+                        variant='h4'
+                        component="span"
+                        sx={{ display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
+                        >
+                            How It Works?
+                    </Typography>
                 </Grid>
-                <Box sx={{position:'relative', left:'15%', display: { xs: 'none', md: 'block' } }}>
+                
+                
+                <Box sx={{position:'relative', padding:'5% 0 0 0', left:'20%', display: { xs: 'none', md: 'block' } }}>
                     <Grid container spacing={0} sx={{padding: '0'}}>
                         <Grid item xs={12} md={6} >
-                                < CardClickable Title="Got a Plot?"
-                                Message="magna aliqua. Ut enim ad minim veniam, quis nostrud e
-                                            xercitation ullamco"
+                                < CardClickable Photo="./assets/gotPlot.png"
                                             Link1="Check Listing"
                                             />
                         </Grid>
-                        <Grid item xs={12} md={6}>
-                                < CardClickable Title="Need Modular Home?"
-                                Message="magna aliqua. Ut enim ad minim veniam, quis nostrud e
-                                            xercitation ullamco"
+                        <Grid item xs={12} md={6} sx={{position:'relative', left:'20%', display: { xs: 'none', md: 'block' } }}>
+                                < CardClickable Photo="./assets/needHome.png"
                                             Link1="Check Options"
                                             />
                         </Grid>
                     </Grid>
                 </Box>
-                <Box sx={{padding:"0 10%", display: { xs: 'block', md: 'none' }}}>
+                <Box sx={{ position:'relative', left:'12%', padding:'2%', display: { xs: 'block', md: 'none' }}}>
                     <Grid container spacing={0}>
-                        <Grid item xs={12} md={6} sx={{position:'relative', left:'10%', margin:'2% 0'}} >
-                                < CardClickable Title="Got a Plot?"
-                                Message="magna aliqua. Ut enim ad minim veniam, quis nostrud e
-                                            xercitation ullamco"
+                        <Grid item xs={10} md={6} sx={{padding:'2% 0'}} >
+                                < CardClickable Photo="./assets/gotPlot.png"
                                             Link1="Check Listing"
                                             />
                         </Grid>
-                        <Grid item xs={12} md={6} sx={{position:'relative', left:'10%', margin:'2% 0'}}>
-                                < CardClickable Title="Need Modular Home?"
-                                Message="magna aliqua. Ut enim ad minim veniam, quis nostrud e
-                                            xercitation ullamco"
+                        
+                        <Grid item xs={10} md={6} sx={{padding:'2% 0'}}>
+                                < CardClickable Photo="./assets/needHome.png"
                                             Link1="Check Options"
                                             />
                         </Grid>

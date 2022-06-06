@@ -5,14 +5,14 @@ import Footer from '../Components/Footer';
 
 import React, { useState,useEffect } from "react";
 import { useParams } from 'react-router-dom';
-
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForwardIos';
 import Button from '@mui/material/Button';
 import { publicRequest, userRequest } from "../Axios/requestMethods";
 import { Link } from 'react-router-dom';
@@ -73,7 +73,7 @@ const Product = () =>{
                           alt="Listing Photo"
                       />
                     </Box>
-
+                    
                     <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                       <CardMedia
                           component="img"
@@ -82,8 +82,10 @@ const Product = () =>{
                           alt="Listing Photo"
                       />
                     </Box>
-                    
                 </Card>
+
+                {pics.map((item, index) =><FiberManualRecordIcon />)}
+                
             </Grid>
             <Grid item xs={1.5} md={1}>
                 <Button sx={{textAlign:'center', backgroundColor:'inherit' }} onClick={handleClickFront}>
@@ -120,7 +122,7 @@ const Product = () =>{
                             >
                               {listing.city}
                         </Typography>
-                        <Button size="sm" onClick={()=>handleClick(loggedUser._id, listing.poster)} sx={{textAlign:'left', backgroundColor:'#ffc13b', width:'70%', '&:hover': {boxShadow:'2px', backgroundColor:'#FFB923'}} }>
+                        <Button size="sm" onClick={()=>handleClick(loggedUser._id, listing.poster)} sx={{textAlign:'left', backgroundColor:'#ffc13b', width:'70%', textTransform: 'none', '&:hover': {boxShadow:'2px', backgroundColor:'#FFB923'}} }>
                           <Typography variant="h6" color="text.secondary">
                             Chat Now
                           </Typography>

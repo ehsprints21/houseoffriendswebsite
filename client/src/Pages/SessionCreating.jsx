@@ -5,7 +5,7 @@ import Footer from '../Components/Footer';
 import Overlay from '../Components/Overlay';
 import React, { useState,useEffect } from "react";
 import { userRequest, publicRequest } from "../Axios/requestMethods";
-import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -29,6 +29,7 @@ const ListingCreation =()=> {
     const [time,setTime] = useState("");
     const [amount,setAmount] = useState("");
     const [address,setAddress] = useState("");
+    const [pinCode,setPinCode] = useState("");
     const [city,setCity] = useState("");
     const [title,setTitle] = useState("");
     const [description,setDescription] = useState("");
@@ -105,6 +106,7 @@ const ListingCreation =()=> {
             propertyType: propertyType,
             area: amount,
             address: address,
+            pinCode: pinCode,
             city: city,
             title: title,
             description: description,
@@ -162,7 +164,7 @@ const ListingCreation =()=> {
   return (
       <>
       <Navbar />
-    <AppBar position="static" sx={{backgroundColor: '#ffc13b', padding:'2% 7%', margin:'7% 0'}}>
+    <Box position="static" sx={{ padding:'2% 7%', margin:'7% 0'}}>
       <Container maxWidth="md">
       
         <Toolbar sx={{ display: { xs: 'block', md: 'block' } }}>
@@ -183,12 +185,33 @@ const ListingCreation =()=> {
                     </Typography>
                     </Grid>
                     <Grid item xs={12} md={12}>
+                          <Typography
+                                    component="span"
+                                    variant='body1'
+                                    sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                                >
+                            Rate in ₹
+                            </Typography>
                         <TextField id="outlined-basic" label="Rate in ₹" placeholder=" Charges per Month" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setRate(e.target.value)} />
                     </Grid>
                     <Grid item xs={12} md={12}>
+                          <Typography
+                                    component="span"
+                                    variant='body1'
+                                    sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                                >
+                            Time In Month
+                            </Typography>
                         <TextField id="outlined-basic" label="Time in Months" placeholder="Time in Months" variant="outlined" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTime(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
+                      <Typography
+                                    component="span"
+                                    variant='body1'
+                                    sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                                >
+                            Type
+                            </Typography>
                         <FormControl fullWidth>
                             <InputLabel id="select-label">Select Listing Type</InputLabel>
                             <Select
@@ -205,18 +228,75 @@ const ListingCreation =()=> {
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} md={12}>
+                            <Typography
+                                    component="span"
+                                    variant='body1'
+                                    sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                                >
+                            Area
+                            </Typography>
                         <TextField id="outlined-basic" label="Area" placeholder="Enter the Area of plot/house in sq ft." fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setAmount(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <TextField id="outlined-basic" label="Address" placeholder="Enter the Address" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setAddress(e.target.value)}/>
+                            <Typography
+                                    component="span"
+                                    variant='body1'
+                                    sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                                >
+                            Address
+                            </Typography>
+                            <TextareaAutosize
+                              aria-label="minimum height"
+                              minRows={8}
+                              placeholder="Enter the Address"
+                              style={{ width: '100%', whiteSpace: "preWrap"}}
+                              onChange={(e)=>setAddress(e.target.value)}
+                          />
                     </Grid>
                     <Grid item xs={12} md={12}>
+                            <Typography
+                                    component="span"
+                                    variant='body1'
+                                    sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                                >
+                            PinCode
+                            </Typography>
+                            <TextareaAutosize
+                              aria-label="minimum height"
+                              minRows={8}
+                              placeholder="Enter the Pin Code"
+                              style={{ width: '100%', whiteSpace: "preWrap"}}
+                              onChange={(e)=>setPinCode(e.target.value)}
+                          />
+                    </Grid>
+                    <Grid item xs={12} md={12}>
+                            <Typography
+                                    component="span"
+                                    variant='body1'
+                                    sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                                >
+                             City
+                            </Typography>
                         <TextField id="outlined-basic" label="City" placeholder="Enter your City" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setCity(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
+                              <Typography
+                                    component="span"
+                                    variant='body1'
+                                    sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                                >
+                             Title
+                            </Typography>
                         <TextField id="outlined-basic" label="Title" placeholder="Enter the Title" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTitle(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
+                          <Typography
+                                    component="span"
+                                    variant='body1'
+                                    sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                                >
+                             Description
+                          </Typography>
                     <TextareaAutosize
                         aria-label="minimum height"
                         minRows={8}
@@ -248,7 +328,7 @@ const ListingCreation =()=> {
           </Toolbar>
           { opn ? <Overlay val={opn} ret={retMessage} />: null  }
       </Container>
-    </AppBar>
+    </Box>
     <BottomBar />
     <Footer />
     </>

@@ -12,12 +12,12 @@ const pages = ['Disclaimer','Privacy','Terms & Conditions'];
 const Footer = () => {
   
   return (
-    <AppBar position="static" sx={{backgroundColor: '#394044', paddingLeft:'8%', paddingRight:'8%' }}>
+    <AppBar position="static" sx={{backgroundColor: 'inherit', paddingLeft:'8%', paddingRight:'8%', borderTopStyle:'solid' }}>
       <Container maxWidth="xl" sx={{ paddingTop:'0', paddingBottom: '0', margin:'0'}}>
         <Toolbar sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
           <Typography
             component="span"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, fontSize:'13px' }}
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color:'black', fontSize:'13px' }}
           >
             Copyright 2022. Dichroic Labs LLP All Rights Reserved. 
           </Typography>
@@ -27,7 +27,12 @@ const Footer = () => {
                 key={page}
                 sx={{ my: 2, color: 'white', display: 'block', margin:'0', fontSize:'13px' }}
               >
-                {page}
+                 <Typography
+                    component="span"
+                    sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color:'black', fontSize:'13px', textTransform: 'none' }}
+                  >
+                   {page}
+                </Typography>
               </Button>
             ))}
           </Box>

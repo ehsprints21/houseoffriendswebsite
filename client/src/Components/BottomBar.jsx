@@ -4,16 +4,91 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
 const BottomBar = () => {
   
   return (
-    <AppBar position="static" sx={{backgroundColor: '#262e33', paddingLeft:'7%', paddingRight:'7%', paddingBottom:'2%'}}>
+    <AppBar position="static" sx={{ backgroundColor:'white', paddingLeft:'7%', paddingRight:'7%', paddingBottom:'2%', borderBottomStyle:'solid', borderBottomColor:'grey'}}>
       <Container maxWidth="xl">
-        <Toolbar sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={4} sx={{position:'relative', top:10 }}>
+            <img src='./assets/hoffr.png' alt='titlePhoto'></img>
+          </Grid>
+          <Grid item xs={4} md={2}>
+            <Typography
+              component="div"
+              variant="h5"
+              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+            >
+              Product
+            </Typography>
+            <Typography
+              component="div"
+              variant="object-2"
+              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+            >
+                Feature<br/><br/>
+                Pricing<br/><br/>
+                Reviews<br/><br/>
+                Updates<br/><br/>
+            </Typography>
+          </Grid>
+          <Grid item xs={4} md={2}>
+            <Typography
+              component="div"
+              variant="h5"
+              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+            >
+              Company
+            </Typography>
+            <Typography
+              component="div"
+              variant="object-2"
+              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+            >
+                About<br/><br/>
+                Contact Us<br/><br/>
+            </Typography>
+
+          </Grid>
+          <Grid item xs={4} md={2}>
+            <Typography
+              component="div"
+              variant="h5"
+              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+            >
+              Support
+            </Typography>
+            <Typography
+              component="div"
+              variant="object-2"
+              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+            >
+                Getting Started<br/><br/>
+                Help Center<br/><br/>
+            </Typography>
+          </Grid>
+          <Grid item xs={4} md={2}>
+            <Typography
+              component="div"
+              variant="h5"
+              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+            >
+              Contact Us
+            </Typography>
+            <Typography
+              component="div"
+              variant="object-2"
+              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+            >
+                contact@company.com<br/><br/>
+            </Typography>
+          </Grid>
+        </Grid>
+        {/* <Toolbar sx={{ display: { xs: 'none', md: 'flex' } }}>
           <Toolbar sx={{ mr: 2, display: { xs: 'none', md: 'block' } }}>
             <Typography
-                 
                 component="div"
                 sx={{ mr: 2, height: '70px', display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%' }}
                 >
@@ -76,15 +151,15 @@ const BottomBar = () => {
                     <li><a href="/" className='bottomLink'>Recordings</a></li>
           </Typography>
 
-        </Toolbar>
+        </Toolbar> */}
         
 
 
 
 
 
-        <Toolbar sx={{ mr: 2, display: { xs: 'block', md: 'none' } }}>
-        <Typography
+        {/* <Toolbar sx={{ mr: 2, display: { xs: 'block', md: 'none' } }}>
+          <Typography
                  
                 component="div"
                 sx={{ mr: 2, height: '70px', display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%' }}
@@ -108,7 +183,7 @@ const BottomBar = () => {
                     <a href="tel:+00000 11111" className='bottomLink'>+00000 11111 </a>
                     <a href="mailto:" className='bottomLink'> contact@company.com</a>
             </Typography>
-        <Typography
+          <Typography
                  
                 component="div"
                 sx={{height: '60px', display: { xs: 'inline-block', md: 'block' }, fontSize: '13px', color:'white', textAlign:'left', position: 'relative', right:'20%' }}
@@ -126,7 +201,7 @@ const BottomBar = () => {
                     <li><a href="/" className='bottomLink'>Contact Us</a></li>
                     <li><a href="/" className='bottomLink'>Recordings</a></li>
           </Typography>
-        </Toolbar>
+        </Toolbar> */}
       </Container>
     </AppBar>
   );

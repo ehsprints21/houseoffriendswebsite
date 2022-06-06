@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,14 +54,13 @@ const Login = () => {
       <div>
       <Navbar />
       {/* <BasicOverlay disp={a} onClick={togler}  /> */}
-    <AppBar position="static" sx={{backgroundColor: '#ffc13b', padding:'2% 7%', margin:'7% 0'}}>
+    <Box position="static" sx={{backgroundColor: 'inherit', padding:'2% 7%', margin:'7% 0'}}>
       <Container maxWidth="md">
         <Toolbar sx={{ display: { xs: 'block', md: 'block' } }}>
             <form>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={12}>
                     <Typography
-
                         component="span"
                         sx={{ mr: 2, display: { xs: 'block', md: 'block' }, fontSize:'13px', color:'black', textAlign:'center' }}
                     >
@@ -75,17 +75,45 @@ const Login = () => {
         
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <TextField id="outlined-basic" placeholder="Your Email" type="email" fullWidth sx={{backgroundColor:"white"}} onChange={(e) => setEmail(e.target.value)} />
+                            <Typography
+                            component="span"
+                            variant='body1'
+                            sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                        >
+                            Email
+                            </Typography>
+                        <TextField placeholder="Your Email" type="email" fullWidth sx={{backgroundColor:"white", borderRadius:5}} onChange={(e) => setEmail(e.target.value)} />
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <TextField id="outlined-basic" placeholder="Password" type="password" variant="outlined" fullWidth sx={{backgroundColor:"white"}} onChange={(e) => setPassword(e.target.value)} />
+                            <Typography
+                            component="span"
+                            variant='body1'
+                            sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
+                        >
+                            Password
+                            </Typography>
+                        <TextField id="outlined-basic" placeholder="Password" type="password" variant="outlined" fullWidth sx={{backgroundColor:"white", borderRadius:5}} onChange={(e) => setPassword(e.target.value)} />
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"black", width:'70%', height:'100%' }} onClick={handleLogin}>Login</Button>
+                        <Button variant="secondary" autoCapitalize="none" type='submit' sx={{backgroundColor:"#ffc13b", height:'100%', width:'30%', borderRadius:5, textTransform: 'none' }} onClick={handleLogin}>
+                            <Typography
+                            component="span"
+                            sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
+                        >
+                            Login
+                            </Typography>
+                        </Button>
                     </Grid>
                     
                     <Grid item xs={12} md={12}>
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"black", width:'70%', height:'100%' }} onClick={handleRegister}>Register Instead</Button>
+                        <Button variant="Secondary" type='submit' sx={{backgroundColor:"#ffc13b", height:'100%', width:'30%', borderRadius:5, textTransform: 'none' }} onClick={handleRegister}>
+                            <Typography
+                                component="span"
+                                sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
+                            >
+                            Register Instead
+                            </Typography>
+                        </Button>
                     </Grid>
                     <Grid item xs={12} md={12}>
                         <Typography
@@ -99,7 +127,7 @@ const Login = () => {
             </form>
           </Toolbar>
       </Container>
-    </AppBar>
+    </Box>
     <BottomBar />
     <Footer />
     </div>

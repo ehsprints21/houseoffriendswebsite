@@ -16,25 +16,25 @@ import { Link } from 'react-router-dom';
 function MediaCard(props) {
 
     return (
-      <Card variant='elevation' elevation={4} sx={{ minWidth:325, maxWidth:325, margin:'5%', padding:'0' }}>
+      <Card variant='elevation' elevation={4} sx={{ minWidth:325, maxWidth:325, margin:'5%', padding:'2.5%', backgroundColor:'#F5F5F5' }}>
           <CardMedia
             component="img"
-            height='200'
+            height='175'
             width='100%'
             image={props.photo}
             alt="Product Photo"
       />
-          <CardContent sx={{minWidth:325, minHeight:75, maxHeight:100, padding:'0 2.5%', backgroundColor:'white'}}>
+          <CardContent sx={{minWidth:325, minHeight:75, maxHeight:100, padding:'0 2.5%'}}>
             <Typography variant="h5" component="div" sx={{color:'#FFB923', padding:'2% 5%', textAlign:'left'}}>
               <b>{props.rate}</b>
             </Typography>
           </CardContent>
-          <CardContent sx={{minWidth:325, padding:'2% 5%', backgroundColor:'white'}}>
+          <CardContent sx={{minWidth:325, padding:'2% 5%'}}>
             <Typography variant="body-1" flexWrap component="div" sx={{color:'text.secondary', padding:'1%', textAlign:'left'}}>
               <em>{props.title}</em>
             </Typography>
           </CardContent>
-        <CardContent sx={{maxWidth:325, height:25, maxHeight:25, padding:'1%', backgroundColor:'white'}}>
+        <CardContent sx={{maxWidth:325, height:25, maxHeight:25, padding:'1%'}}>
           <Typography variant="object-2" color="text.secondary" component="div" sx={{ padding:'2% 5%', textAlign:'right'}}>
             <em>
               {props.city}
@@ -67,13 +67,6 @@ const Listing = () =>{
                             sx={{ mr: 2,  padding:'2% 5%', textAlign:'center', color:'#FFB923' }}
                             >
                                 Plots
-                        </Typography>
-                        <Typography
-                            variant="p"
-                            component="div"
-                            sx={{ padding:'1% 5%', textAlign:'center', color:'black'}}
-                            >
-                                .
                         </Typography>
             </Grid>
 

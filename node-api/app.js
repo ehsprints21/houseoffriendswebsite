@@ -23,7 +23,6 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
-
 app.use('/api/listing', listingRoute);
 app.use('/api/email', emailRoute);
 app.use('/api/auth', authRoute);
