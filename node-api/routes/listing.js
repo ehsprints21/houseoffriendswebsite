@@ -58,7 +58,7 @@ router.get("/showListing/:id", async (req, res) => {
 router.get("/showListingsAll", async (req, res) => {
     let current = new Date();
     current.setDate(current.getDate() - 1).toString();
-    const sessions = await Listings.find({date: { $gte: current } }).sort( { date: 1 } );
+    const sessions = await Listings.find({}).sort({"createdAt": -1}).exec()
     res.json(sessions);
 });
 

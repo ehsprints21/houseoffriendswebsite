@@ -98,33 +98,34 @@ const Product = () =>{
                     
                       <Card variant='elevation' elevation={1} sx={{margin:'2%', padding:'4%' }}>
                         <Typography
-                            variant="h4"
+                            variant="object-1"
                             component="div"
-                            sx={{ mr: 2,  padding:'5% 5%', textAlign:'left', color:'#FFB923' }}
+                            sx={{ mr: 2,  padding:'2% 5%', textAlign:'left', color:'black', fontSize:30 }}
                             >
                               Rate - ₹ {listing.rate}
                         </Typography>
                         <Typography
-                            variant="h5"
+                            variant="object-1"
                             component="div"
-                            sx={{ mr: 2,  padding:'5% 5%', textAlign:'left', color:'text.secondary' }}
+                            sx={{ mr: 2,  padding:'2% 4%', textAlign:'left', color:'black', fontSize:20 }}
                             >
-                              By-  {listing.posterName}
+                              Listed By-  {listing.posterName}
                         </Typography>
                         <Typography
                             variant="object-1"
                             component="div"
-                            sx={{ mr: 2,  padding:'0 4%', textAlign:'left', color:'black', fontSize:20 }}
+                            sx={{ mr: 2,  padding:'0 4%', textAlign:'left', color:'text.secondary', fontSize:20 }}
                             >
                               {listing.title}
                         </Typography>
                         <Typography
                             variant="object-1"
                             component="div"
-                            sx={{ mr: 2,  padding:'', textAlign:'right', color:'black', fontSize:20 }}
+                            sx={{ mr: 2,  padding:'0 4%', textAlign:'left', color:'text.secondary', fontSize:20 }}
                             >
-                              {listing.city}
+                              City - {listing.city}
                         </Typography>
+                        <br/>
                         <Button size="sm" onClick={()=>handleClick(loggedUser._id, listing.poster)} sx={{textAlign:'left', backgroundColor:'#ffc13b', width:'70%', textTransform: 'none', '&:hover': {boxShadow:'2px', backgroundColor:'#FFB923'}} }>
                           <Typography variant="h6" color="text.secondary">
                             Contact
@@ -134,7 +135,7 @@ const Product = () =>{
                       
             </Grid>
             <Grid item xs={12} md={7}>
-                <Card variant='elevation' elevation={1} sx={{margin:'2%', padding:'0' }}>
+                <Card variant='elevation' elevation={1} sx={{margin:'2%', padding:'0', minHeight:550 }}>
                 <Typography
                             variant="h4"
                             component="div"

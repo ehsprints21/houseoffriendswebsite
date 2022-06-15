@@ -39,7 +39,6 @@ const ListingCreation =()=> {
     const [poster,setPoster] = useState("");
     const [posterName,setPosterName] = useState("");
     const [photos,setPhotos] = useState([]);
-    const [locErr,setLocErr] = useState("");
     const [retMessage,setRetMessage] = useState("");
     const [opn,setOpn] = useState(false);
     const [data, setData] = useState({lat: 28.304380682962783, lng: 77.08007812500001});
@@ -119,6 +118,7 @@ const ListingCreation =()=> {
             address: address,
             pinCode: pinCode,
             city: city,
+            state: state,
             title: title,
             description: description,
             poster: poster,
@@ -300,7 +300,6 @@ const ListingCreation =()=> {
         
                     <p>{opn}</p>
                     <MapRender childToParent={childToParent}/>
-                    <p>{locErr}</p>
                     <Grid item xs={12} md={12}>
                         <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleClick} >Submit</Button>
                     </Grid>  
