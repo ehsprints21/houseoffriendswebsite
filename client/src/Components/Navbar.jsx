@@ -18,19 +18,24 @@ import { Link } from 'react-router-dom';
 
 
 const ResponsiveAppBar = () => {
-  const [logOption, setLogOption]=useState('Login')
-  const pages = [<Link className='navMenu' to='/sessions'>Products</Link>,<Link className='navMenu' to='/sessions'>Plots</Link>,<Link className='navMenu' to='/aboutUs'>About Us</Link>,<Link className='navMenu' to='/aboutUs'>Contact Us</Link> ,<Link className='navMenu' to='/login'>{logOption}</Link>];
+  const [logOption, setLogOption]=useState('Login/Register')
+  const pages = [<Link className='navMenu' to='/sessions'>Products</Link>,
+  <Link className='navMenu' to='/sessions'>Plots</Link>,
+  <Link className='navMenu' to='/aboutUs'>About Us</Link>,
+  <Link className='navMenu' to='/contact'>Contact Us</Link>,
+  <Link className='navMenu' to='/login'>{logOption}</Link>];
   
   const [anchorElNav, setAnchorElNav] = useState(null);
   
   const navigate = useNavigate();
+
   const loggedUser=useSelector((state)=>state.user.currentUser);
 
   useEffect( () => {
     if (loggedUser) {
       setLogOption("Profile");
     }else{
-      setLogOption("Login");
+      setLogOption("Login/Register");
     }
   }, [loggedUser]);
 
@@ -52,7 +57,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, height: '70px', display: { xs: 'none', md: 'flex' } }}
           >
-          <a href='/'><img src='./assets/hoffr.png' height='70px' alt='companyLogo'/></a>
+          <a href='/'><img src='../assets/hoffrTop.png' height='70px' alt='companyLogo'/></a>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, position: 'relative', right: '10%' }}>
@@ -98,7 +103,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, height: '75px', position:'relative', bottom: "25px", display: { xs: 'flex', md: 'none' } }}
           >
-            <a href='/'><img src='./assets/hoffr.png' height='50px' alt='companyLogo'/></a>
+            <a href='/'><img src='../assets/hoffrTop.png' height='50px' alt='companyLogo'/></a>
           </Typography>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, position:'relative', left: "75%"}}>
               {pages.slice(4,5).reverse().map((page, index) => (
@@ -106,7 +111,7 @@ const ResponsiveAppBar = () => {
                 key={index}
                 variant="outlined"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, textTransform: 'none', color: 'black', display: 'block', margin:'0','&:hover': {color: '#FFB923', backgroundColor:'inherit'} }}
+                sx={{ my: 2, textTransform: 'none', color: 'black', display: 'block', borderColor:'#FFB923', borderStyle:'double', margin:'0','&:hover': {color: '#FFB923', backgroundColor:'inherit'} }}
               >
                 {page}
               </Button>

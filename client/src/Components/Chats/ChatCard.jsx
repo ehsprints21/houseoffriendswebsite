@@ -18,7 +18,7 @@ function ChatCard(props) {
     // console.log(props.message)
     return (
       <div>
-        <Card variant='elevation' elevation={4} sx={{ width:"50%", margin:'2%', padding:'0', display:'block', float: dirn }}>
+        <Card variant='elevation' elevation={4} sx={{ width:"50%", margin:'2%', padding:'0', display:'block', borderRadius:5, float: dirn }}>
           <CardContent sx={{width:"100%", padding:'0 2.5%', backgroundColor:'white'}}>
             <Typography variant="object-2" component="div" sx={{color:'black', padding:'2% 2.5%', textAlign:'left'}} gutterBottom >
               {chatText}

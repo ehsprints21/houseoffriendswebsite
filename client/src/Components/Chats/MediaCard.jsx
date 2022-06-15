@@ -27,7 +27,7 @@ function MediaCard(props) {
     }
   
       return (
-              <Button fullWidth sx={{textAlign:'left', backgroundColor:'inherit'}} onClick={handleChatId} >
+              <Button fullWidth sx={{textAlign:'left', backgroundColor:'inherit', textTransform: 'none'}} onClick={handleChatId} >
                     <Typography variant="object-2" color="text.secondary" sx={{textAlign:'left'}} >
                       { conversationName }
                     </Typography>

@@ -2,11 +2,10 @@ import '../App.css';
 import Navbar from '../Components/Navbar';
 import BottomBar from '../Components/BottomBar';
 import Footer from '../Components/Footer';
-
 import React, { useState,useEffect } from 'react';
-import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
+import ButtonCard from '../Components/Dashboard/Card';
 import Box from '@mui/material/Box';
-import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import { Typography } from '@mui/material';
@@ -68,38 +67,38 @@ const Board=()=>{
 
       const handleDetail= ()=>{
         setUser(loggedUser);
-        // console.log(user);
       }
 
 
     return(
         <div>
             <Navbar />
-            <Box sx={{ display:'block'}}>
-                <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%'}} onClick={handleLogout} >Logout</Button>
-                <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%'}} onClick={handleSessionCreation} >Add Listing</Button>
-                <Button variant="contained dark" sx={{ display:'none', margin:'4%'}} onClick={handleDetail}>Your Details</Button>
-                <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%'}} onClick={handleSessionDeletion} >Your Listing</Button>
-                <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%'}} onClick={handleOffers} >View Offers</Button>
-                <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%'}} onClick={handleEditDetail} >Edit your Details</Button>
-                <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%'}} onClick={handleEditDocuments} >Add Documents</Button>
+            <Box sx={{height:'80vh'}}>
+              <Grid container spacing={1} >
+                  <Grid item xs={6} sm={6} md={6} sx={{display:'flex'}}>
+                    <Typography variant="h5" sx={{color:'black', textAlign:'center', padding:'2% 20%'}}>
+                      Dashboard
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6} sm={6} md={6} sx={{display:'flex'}}>
+                    <Typography variant="h5" sx={{color:'black', textAlign:'center', padding:'2% 15%'}}>
+                      {user.username}
+                    </Typography>
+                  </Grid>
+              </Grid>
+              <Box sx={{ display:'block', paddingTop:15}}>
+                  <Button variant="contained dark" sx={{ display:'inline-block', margin:'1%'}} onClick={handleSessionCreation} ><ButtonCard Title="Add Listing" Photo="..\assets\map-marker-plus.png"></ButtonCard></Button>
+                  <Button variant="contained dark" sx={{ display:'none', margin:'2%'}} onClick={handleDetail} ><ButtonCard Title="Your Details" Photo="..\assets\about-page\map-marker.png"></ButtonCard></Button>
+                  <Button variant="contained dark" sx={{ display:'inline-block', margin:'1%'}} onClick={handleSessionDeletion} ><ButtonCard Title="Your Listing" Photo="..\assets\map-marker.png"></ButtonCard></Button>
+                  <Button variant="contained dark" sx={{ display:'inline-block', margin:'1%'}} onClick={handleOffers} ><ButtonCard Title="View Offers" Photo="..\assets\comment-alt.png"></ButtonCard></Button>
+                  <Button variant="contained dark" sx={{ display:'inline-block', margin:'1%'}} onClick={handleEditDetail} ><ButtonCard Title="Edit Details" Photo="..\assets\Asset 10NPOCA Website.png"></ButtonCard></Button>
+                  {/* <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%'}} onClick={handleEditDocuments} ><ButtonCard Title="Add Documents"></ButtonCard></Button> */}
+              </Box>
+              <Box sx={{ display:'block'}}>
+                  <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%', borderRadius:5, textTransform: 'none'}} onClick={handleLogout} >Logout</Button>
+              </Box>
             </Box>
-            <Box sx={{height:'25rem', display:'block', textAlign:'left', padding:"2% 30%"}}>
-              <Card variant='elevation' elevation={4} sx={{ minWidth:325, maxWidth:325, margin:'5%', padding:'0' }}>
-                <CardContent sx={{minWidth:325, minHeight:50, maxHeight:150, padding:'0 5%', backgroundColor:'black'}}>
-                  <Typography variant="h5" component="div" sx={{color:'#FFB923', padding:'2% 5%'}}>
-                    {user.username}
-                  </Typography>
-                </CardContent>
-                <CardContent sx={{maxWidth:325, height:75, maxHeight:75, padding:'4%', backgroundColor:'white'}}>
-                  <Typography variant="object-2" color="text.secondary" component="div" sx={{ padding:'2% 5%', textAlign:'left'}}>
-                    <em>
-                    <b>Email - </b>{user.email}
-                    </em><br />
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
+            
             <BottomBar />
             <Footer />
         </div>

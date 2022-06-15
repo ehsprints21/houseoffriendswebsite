@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 
 export default function BasicCard(props) {
   return (
-    <Card variant='elevation' elevation={4} sx={{ width:200, padding:'1%', display:'flex' }}>
+    <Card variant='elevation' elevation={4} sx={{ width:150, padding:'1%', display:'flex' }}>
       <CardContent>
-        <Typography variant="p" component="div" sx={{ padding:'2%'}}>
+        <Typography variant="p" component="div" sx={{ padding:'5%'}}>
           <img src={props.Photo} height={50} alt='photoForCard'/>
         </Typography>
         <Typography variant="h6" component="div" sx={{textTransform: 'none'}}>

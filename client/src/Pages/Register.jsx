@@ -1,10 +1,7 @@
 import '../App.css';
-
 import Navbar from '../Components/Navbar';
-
 import BottomBar from '../Components/BottomBar';
 import Footer from '../Components/Footer';
-
 import React, { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,12 +11,10 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { publicRequest } from "../Axios/requestMethods";
-import { useNavigate } from "react-router-dom";
 
 
 const Register = () => {
     
-    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -46,7 +41,7 @@ const Register = () => {
   return (
       <div>
       <Navbar />
-    <AppBar position="static" sx={{backgroundColor: '#ffc13b', padding:'2% 7%', margin:'7% 0'}}>
+    <AppBar position="static" sx={{backgroundColor: 'white', padding:'2% 7%', margin:'7% 0'}}>
       <Container maxWidth="md">
         <Toolbar sx={{ display: { xs: 'block', md: 'block' } }}>
             <form>
@@ -68,18 +63,18 @@ const Register = () => {
         
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <TextField id="outlined-basic" label="User Name" placeholder="Your User Name" fullWidth sx={{backgroundColor:"white"}} onChange={(e) => setUsername(e.target.value)}/>
+                        <TextField id="outlined-basic" className="inputRounded" label="User Name" placeholder="Your User Name" fullWidth sx={{backgroundColor:"white"}} onChange={(e) => setUsername(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <TextField id="outlined-basic" label="Email Id" placeholder="Enter Your Email" fullWidth sx={{backgroundColor:"white"}} onChange={(e) => setEmail(e.target.value)}/>
+                        <TextField id="outlined-basic" className="inputRounded" label="Email Id" placeholder="Enter Your Email" fullWidth sx={{backgroundColor:"white"}} onChange={(e) => setEmail(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <TextField id="outlined-basic" label="Password" placeholder="Password" type="password" variant="outlined" fullWidth sx={{backgroundColor:"white"}} onChange={(e) => setPassword(e.target.value)} />
+                        <TextField id="outlined-basic" className="inputRounded" label="Password" placeholder="Password" type="password" variant="outlined" fullWidth sx={{backgroundColor:"white"}} onChange={(e) => setPassword(e.target.value)} />
                     </Grid>
                     
                     
                     <Grid item xs={12} md={12}>
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"black", width:'70%', height:'100%' }} onClick={handleRegister}>Register</Button>
+                        <Button variant="contained" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none'  }} onClick={handleRegister}>Register</Button>
                     </Grid>
                     <Typography
                         component="span"

@@ -72,3 +72,7 @@ router.get("/cloud", async (req, res)=>{
 router.get("/preset", async (req, res)=>{
     res.send(process.env.PRESET);
 })
+
+router.get("/mapKey", async (req, res)=>{
+    res.send(process.env.MAPS);
+})

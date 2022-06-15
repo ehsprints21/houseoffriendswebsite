@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar';
 import BottomBar from '../Components/BottomBar';
 import Footer from '../Components/Footer';
 import Overlay from '../Components/Overlay';
+import MapRender from '../Components/ListingCreation.jsx/Map';
 import React, { useState,useEffect } from "react";
 import { userRequest, publicRequest } from "../Axios/requestMethods";
 import Box from '@mui/material/Box';
@@ -18,7 +19,7 @@ import FormControl from '@mui/material/FormControl';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Select from '@mui/material/Select';
 import { useNavigate } from "react-router-dom";
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 
 const ListingCreation =()=> {
@@ -31,6 +32,7 @@ const ListingCreation =()=> {
     const [address,setAddress] = useState("");
     const [pinCode,setPinCode] = useState("");
     const [city,setCity] = useState("");
+    const [state,setState] = useState("");
     const [title,setTitle] = useState("");
     const [description,setDescription] = useState("");
     const [propertyType,setPropertyType] = useState("");
@@ -40,13 +42,10 @@ const ListingCreation =()=> {
     const [locErr,setLocErr] = useState("");
     const [retMessage,setRetMessage] = useState("");
     const [opn,setOpn] = useState(false);
-    const [loc,setLoc] = useState({});
-
+    const [data, setData] = useState({lat: 28.304380682962783, lng: 77.08007812500001});
     const navigate = useNavigate();
 
     const loggedUser=useSelector((state)=>state.user.currentUser);
-
-
     
     useEffect( () => {
         const handler= async ()=>{
@@ -63,6 +62,18 @@ const ListingCreation =()=> {
         }
         handler();
       }, []);
+
+    useEffect(()=>{
+      const f=async ()=>{
+        if (pinCode.length===6) {
+          const res = await userRequest.post("/listing/usePincode", {pinCode:pinCode});
+          console.log(res.data);
+          setState(res.data.State);
+          setCity(res.data.City);
+        }
+      }
+      f();
+    }, [pinCode])
 
     
       var myWidget = window.cloudinary.createUploadWidget(
@@ -113,7 +124,8 @@ const ListingCreation =()=> {
             poster: poster,
             posterName: posterName,
             titlePhoto: photos[0],
-            photos: photos
+            photos: photos,
+            latLon: data
         }
 
         const res = await userRequest.post("/listing/createListing", prod);
@@ -122,42 +134,15 @@ const ListingCreation =()=> {
           await setOpn(true);
         }}
 
-        const handleLocation=async (e)=>{
-            e.preventDefault();
-                if (navigator.geolocation) {
-                  navigator.geolocation.getCurrentPosition(showPosition, showError);
-                } else {
-                  console.log("Geolocation is not supported by this browser.")
-                }
-
-              function showPosition(position) {
-                  setLoc(position.coords)
-              }
-
-              function showError(error) {
-                switch(error.code) {
-                  case error.PERMISSION_DENIED:
-                    setLocErr("User denied the request for Geolocation.")
-                    break;
-                  case error.POSITION_UNAVAILABLE:
-                    setLocErr("Location information is unavailable.")
-                    break;
-                  case error.TIMEOUT:
-                    setLocErr("The request to get user location timed out.")
-                    break;
-                  case error.UNKNOWN_ERROR:
-                    setLocErr("An unknown error occurred.")
-                    break;
-                  default:
-                    setLocErr("")
-                }
-            }
-                
-        };
         const editPhotos=async (i)=>{
             let tempArray=photos;
             await tempArray.splice(i,1);
             setPhotos([...tempArray]);
+        }
+
+        const childToParent = (childdata) => {
+          setData(childdata);
+          console.log(data);
         }
 
 
@@ -177,12 +162,12 @@ const ListingCreation =()=> {
                     >
                         <h4>List a New Property</h4>
                     </Typography>
-                    <Typography
+                    {/* <Typography
                         component="span"
                         sx={{ mr: 2, display: { xs: 'block', md: 'block' }, fontSize:'13px', color:'black', textAlign:'center' }}
                     >
                         <p>.</p>
-                    </Typography>
+                    </Typography> */}
                     </Grid>
                     <Grid item xs={12} md={12}>
                           <Typography
@@ -190,9 +175,9 @@ const ListingCreation =()=> {
                                     variant='body1'
                                     sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
                                 >
-                            Rate in ₹
+                            Rate (₹/Month)
                             </Typography>
-                        <TextField id="outlined-basic" label="Rate in ₹" placeholder=" Charges per Month" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setRate(e.target.value)} />
+                        <TextField className="inputRounded" id="outlined-basic" label="Rate" placeholder=" Charges in ₹ without any (,) or spaces" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setRate(e.target.value)} />
                     </Grid>
                     <Grid item xs={12} md={12}>
                           <Typography
@@ -202,7 +187,7 @@ const ListingCreation =()=> {
                                 >
                             Time In Month
                             </Typography>
-                        <TextField id="outlined-basic" label="Time in Months" placeholder="Time in Months" variant="outlined" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTime(e.target.value)}/>
+                        <TextField className="inputRounded" id="outlined-basic" label="Time in Months" placeholder="Time in Months" variant="outlined" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTime(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                       <Typography
@@ -212,7 +197,7 @@ const ListingCreation =()=> {
                                 >
                             Type
                             </Typography>
-                        <FormControl fullWidth>
+                        <FormControl className="inputRounded" fullWidth>
                             <InputLabel id="select-label">Select Listing Type</InputLabel>
                             <Select
                             labelId="simple-select-label"
@@ -233,9 +218,9 @@ const ListingCreation =()=> {
                                     variant='body1'
                                     sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
                                 >
-                            Area
+                            Area (in sq ft.)
                             </Typography>
-                        <TextField id="outlined-basic" label="Area" placeholder="Enter the Area of plot/house in sq ft." fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setAmount(e.target.value)}/>
+                        <TextField className="inputRounded" id="outlined-basic" label="Area" placeholder="Area of plot/house in sq ft. in number" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setAmount(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                             <Typography
@@ -246,6 +231,7 @@ const ListingCreation =()=> {
                             Address
                             </Typography>
                             <TextareaAutosize
+                              className="inputRounded"
                               aria-label="minimum height"
                               minRows={8}
                               placeholder="Enter the Address"
@@ -261,13 +247,7 @@ const ListingCreation =()=> {
                                 >
                             PinCode
                             </Typography>
-                            <TextareaAutosize
-                              aria-label="minimum height"
-                              minRows={8}
-                              placeholder="Enter the Pin Code"
-                              style={{ width: '100%', whiteSpace: "preWrap"}}
-                              onChange={(e)=>setPinCode(e.target.value)}
-                          />
+                            <TextField className="inputRounded" id="outlined-basic" label="Pin Code" placeholder="Pin Code" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setPinCode(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                             <Typography
@@ -277,7 +257,7 @@ const ListingCreation =()=> {
                                 >
                              City
                             </Typography>
-                        <TextField id="outlined-basic" label="City" placeholder="Enter your City" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setCity(e.target.value)}/>
+                        <TextField id="outlined-basic" className="inputRounded" label="City" placeholder="Enter your City" fullWidth value={city} sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setCity(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                               <Typography
@@ -287,7 +267,7 @@ const ListingCreation =()=> {
                                 >
                              Title
                             </Typography>
-                        <TextField id="outlined-basic" label="Title" placeholder="Enter the Title" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTitle(e.target.value)}/>
+                        <TextField className="inputRounded" id="outlined-basic" label="Title" placeholder="Enter the Title" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTitle(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                           <Typography
@@ -298,6 +278,7 @@ const ListingCreation =()=> {
                              Description
                           </Typography>
                     <TextareaAutosize
+                        className="inputRounded"
                         aria-label="minimum height"
                         minRows={8}
                         placeholder="Description"
@@ -306,7 +287,7 @@ const ListingCreation =()=> {
                     />
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"black", width:'70%', height:'100%' }} onClick={showWidget}>Upload Photos</Button>
+                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={showWidget}>Upload Photos</Button>
                     </Grid>
                     {photos.map( (e, index) =>
                         <div key={index} >
@@ -316,13 +297,11 @@ const ListingCreation =()=> {
         )}
         
                     <p>{opn}</p>
-                    <Grid item xs={12} md={12}>
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"black", width:'70%', height:'100%' }} onClick={handleLocation} >Set Location</Button>
-                    </Grid>  
+                    <MapRender childToParent={childToParent}/>
                     <p>{locErr}</p>
                     <Grid item xs={12} md={12}>
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"black", width:'70%', height:'100%' }} onClick={handleClick} >Submit</Button>
-                    </Grid>     
+                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleClick} >Submit</Button>
+                    </Grid>  
                 </Grid>
             </form>
           </Toolbar>

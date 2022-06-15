@@ -77,7 +77,7 @@ const Listing = () =>{
                               component="div"
                               sx={{ mr: 2,  padding:'5% 5%', textAlign:'center', color:'#FFB923' }}
                               >
-                                  Conversations
+                                  People
                 </Typography>
 
                       {conversations.map((item) =><>
@@ -117,8 +117,8 @@ const Listing = () =>{
                       />
                   </Grid>
                   <Grid item xs={2} md={2}>
-                    <Button sx={{textAlign:'center', backgroundColor:'inherit', float:'right'}} onClick={handleSend}>
-                      <SendIcon />
+                    <Button sx={{textAlign:'center', backgroundColor:'inherit', float:'right', borderRadius:5, textTransform: 'none'}} onClick={handleSend}>
+                      <SendIcon sx={{color:'black', position:'relative', top:20}}/>
                     </Button>
                   </Grid>
                 </Grid>

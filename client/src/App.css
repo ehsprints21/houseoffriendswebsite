@@ -55,3 +55,6 @@
   color: #ffc13b;
   text-decoration: none;
 }
+.inputRounded .MuiOutlinedInput-root {
+  border-radius: 20px;
+}

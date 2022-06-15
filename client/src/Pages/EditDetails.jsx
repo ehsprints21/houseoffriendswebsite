@@ -42,7 +42,7 @@ const Finances = () => {
   return (
       <div>
       <Navbar />
-    <AppBar position="static" sx={{backgroundColor: '#ffc13b', padding:'2% 7%', margin:'7% 0'}}>
+    <AppBar position="static" sx={{backgroundColor: 'white', padding:'2% 7%', margin:'7% 0'}}>
       <Container maxWidth="md">
         <Toolbar sx={{ display: { xs: 'block', md: 'block' } }}>
             <form>
@@ -75,7 +75,7 @@ const Finances = () => {
                     
                     
                     <Grid item xs={12} md={12}>
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"black", width:'70%', height:'100%' }} onClick={handleDetails}>Submit</Button>
+                        <Button variant="contained" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleDetails}>Submit</Button>
                     </Grid> 
                 </Grid>
             </form>

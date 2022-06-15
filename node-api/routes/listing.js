@@ -1,6 +1,7 @@
 const Listings = require("../models/Listings");
 const express = require('express');
 const router = express.Router();
+const https = require('node:https');
 const {verifyToken, verifyTokenAndAuthorization, verifyAdmin} = require("../middlewares/verifyToken");
 //----------CREATE------------
 
@@ -11,12 +12,31 @@ router.post('/createListing', async (req,res)=>{
     res.json(savedListing);
 })
 
-//---------READ-Listings------------
+//---------READ-Listings - Info from pincode------------
+router.post('/usePincode', async (req, resp)=>{
+    const pinCode=req.body.pinCode;
+    //console.log(pinCode);
+    https.get(`https://api.postalpincode.in/pincode/${pinCode}`, (res) => {
+    console.log('statusCode:', res.statusCode);
+    
+        res.on('data', async (d) => {
+            if(JSON.parse(d.toString('utf8'))[0].Status==='Success'){
+            const dataSend = await {City: JSON.parse(d.toString('utf8'))[0].PostOffice[0].District, 
+                                    State: JSON.parse(d.toString('utf8'))[0].PostOffice[0].State}
+            resp.json(dataSend);
+            }else{
+                const dataSend = await {City: 'Invalid PinCode', 
+                                    State: null}
+                resp.json(dataSend);
+            }
+        });
+    
+    }).on('error', (e) => {
+        console.error(e);
+    });
+    
+})
 
-// router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
-//       const cart = await Cart.findOne({ userId: req.params.userId });
-//       res.json(cart);
-//   });
 
 //   //----------------Find All Listings---------------
 

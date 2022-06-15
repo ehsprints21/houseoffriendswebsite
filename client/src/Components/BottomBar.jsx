@@ -1,54 +1,60 @@
 import '../App.css';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 const BottomBar = () => {
   
   return (
-    <AppBar position="static" sx={{ backgroundColor:'white', paddingLeft:'7%', paddingRight:'7%', paddingBottom:'2%', borderBottomStyle:'solid', borderBottomColor:'grey'}}>
+    <AppBar position="static" sx={{ backgroundColor:'white', paddingLeft:'7%', paddingRight:'7%', paddingBottom:'2%', borderBottomStyle:'ridge', borderBottomColor:'black'}}>
       <Container maxWidth="xl">
         <Grid container spacing={2}>
-          <Grid item xs={12} md={4} sx={{position:'relative', top:10 }}>
-            <img src='./assets/hoffr.png' alt='titlePhoto'></img>
+          <Grid item xs={12} md={4} sx={{position:'relative' }}>
+            <img src='../assets/hoffr.png' alt='titlePhoto'></img>
+            <br />
+            <FacebookIcon sx={{color:'black'}} /><TwitterIcon sx={{color:'black'}}/><InstagramIcon sx={{color:'black'}}/><YouTubeIcon sx={{color:'black'}}/>
           </Grid>
           <Grid item xs={4} md={2}>
             <Typography
               component="div"
               variant="h5"
-              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+              sx={{ mr: 2, display: { xs: 'block', md: 'block' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
             >
               Product
             </Typography>
             <Typography
               component="div"
               variant="object-2"
-              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
-            >
-                Feature<br/><br/>
-                Pricing<br/><br/>
-                Reviews<br/><br/>
-                Updates<br/><br/>
+              sx={{ mr: 2, display: { xs: 'block', md: 'block' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+            >   
+                <Link href="#" color="inherit" underline="none">Feature</Link><br/><br/>
+                <Link href="/construction" color="inherit" underline="none">Pricing</Link><br/><br/>
+                <Link href="/construction" color="inherit" underline="none">Reviews</Link><br/><br/>
+                <Link href="/construction" color="inherit" underline="none">Updates</Link><br/><br/>
             </Typography>
           </Grid>
           <Grid item xs={4} md={2}>
             <Typography
               component="div"
               variant="h5"
-              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+              sx={{ mr: 2, display: { xs: 'block', md: 'block' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
             >
               Company
             </Typography>
             <Typography
               component="div"
               variant="object-2"
-              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+              sx={{ mr: 2, display: { xs: 'block', md: 'block' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
             >
-                About<br/><br/>
-                Contact Us<br/><br/>
+                <Link href="#" color="inherit" underline="none">About Us</Link><br/><br/>
+                <Link href="#" color="inherit" underline="none">Contact Us</Link><br/><br/>
             </Typography>
 
           </Grid>
@@ -56,33 +62,33 @@ const BottomBar = () => {
             <Typography
               component="div"
               variant="h5"
-              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+              sx={{ mr: 2, display: { xs: 'block', md: 'block' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
             >
               Support
             </Typography>
             <Typography
               component="div"
               variant="object-2"
-              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+              sx={{ mr: 2, display: { xs: 'block', md: 'block' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
             >
-                Getting Started<br/><br/>
-                Help Center<br/><br/>
+                <Link href="/construction" color="inherit" underline="none">Getting Started</Link><br/><br/>
+                <Link href="/construction" color="inherit" underline="none">Help Center</Link><br/><br/>
             </Typography>
           </Grid>
           <Grid item xs={4} md={2}>
             <Typography
               component="div"
               variant="h5"
-              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+              sx={{ mr: 2, display: { xs: 'block', md: 'block' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
             >
               Contact Us
             </Typography>
             <Typography
               component="div"
               variant="object-2"
-              sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
+              sx={{ mr: 2, display: { xs: 'block', md: 'block' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
             >
-                contact@company.com<br/><br/>
+                <Link href="#" color="inherit" underline="none">contact@company.com</Link><br/><br/>
             </Typography>
           </Grid>
         </Grid>

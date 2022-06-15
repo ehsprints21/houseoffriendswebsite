@@ -12,6 +12,7 @@ import ChatPage from './Pages/ChatPage';
 import AdminBoard from './Pages/AdminDashboard';
 import EditDetails from './Pages/EditDetails';
 import FileUpload from './Pages/FileUpload';
+import { useNavigate } from "react-router-dom";
 
 import {Routes,Route} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,19 +20,22 @@ import { useDispatch, useSelector } from "react-redux";
 function App() {
   const dispatch = useDispatch();
     const loggeduser = useSelector((state)=>state.user.currentUser);
+    const navigate= useNavigate();
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/aboutUs" element={<About />} />
+        {/* <Route path="/aboutUs" element={<About />} /> */}
         <Route path="/Product/:id" element={<Product />} />
         <Route path="/sessions" element={<Sessions />} />
+        <Route path="/construction" element={<Construction />} />
         <Route path="/sessionsDelete" element={<SessionDeletion />} />
         <Route path="/offerChats" element={<ChatPage />} />
         <Route path="/sessionCreation" element={<SessionCreation />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/construction" element={<Construction />} />
+        <Route path="/aboutUs" element={<About />} />
+        <Route path="/contact" element={<Construction />} />
         <Route path="/adminPanel" element={<AdminBoard />} />
         <Route path="/editDetails" element={<EditDetails />} />
         <Route path="/fileUploads" element={<FileUpload />} />

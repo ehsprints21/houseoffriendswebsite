@@ -16,16 +16,16 @@ const Home = () =>{
     return(
         <div>
             <Navbar />
-                <video src="./assets/vidhome.mp4" autoplay='true' muted style={{width: "100%"}} loop type="video/mp4" />
+                <video src="./assets/vidhome.mp4" autoPlay={true} muted style={{width: "100%"}} loop type="video/mp4" />
                 <Box display={{md:'block', xs:'none'}} sx={{ flexGrow: 1, padding:'0 25%', position:'relative', bottom:'100px'}}>
-                <Grid container spacing={0} sx={{ flexGrow: 1, display:'flex', backgroundColor:'#1b2f3f', borderRadius:'20%', opacity:'90%', padding:'3%'}} >
+                <Grid container spacing={0} sx={{ flexGrow: 1, display:'flex', backgroundColor:'#1b2f3f', borderRadius:10, opacity:'90%', padding:'3%'}} >
                     
                     <Grid item xs={12} md={12}>
-                        <Box sx={{backgroundColor:'#1b2f3f', padding:'2%', borderRadius:'20%', opacity:'90%'}}>
+                        <Box sx={{backgroundColor:'#1b2f3f', padding:'2%', borderRadius:20, opacity:'90%'}}>
                             <Typography
                                 variant='h6'
                                 component="span"
-                                sx={{ display: { xs: 'block', md: 'block' }, color:'white', textAlign:'center', borderRadius:'10%' }}
+                                sx={{ display: { xs: 'block', md: 'block' }, color:'white', textAlign:'center', borderRadius:20 }}
                                 >
                                     Rental Services
                             </Typography>

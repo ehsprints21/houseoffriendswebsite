@@ -3,7 +3,6 @@ import Navbar from '../Components/Navbar';
 import BottomBar from '../Components/BottomBar';
 import Footer from '../Components/Footer';
 import React, { useState, useEffect } from 'react';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -31,7 +30,6 @@ const Login = () => {
         if (loggedInUser) {
           setUser(loggedInUser); 
           navigate(path);
-          window.location.reload(false);
             }
          }, [loggedInUser]);
 
@@ -62,13 +60,13 @@ const Login = () => {
                     <Grid item xs={12} md={12}>
                     <Typography
                         component="span"
-                        sx={{ mr: 2, display: { xs: 'block', md: 'block' }, fontSize:'13px', color:'black', textAlign:'center' }}
+                        sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
                     >
-                        <h4>Login</h4>
+                        <h2>Login</h2>
                     </Typography>
                     <Typography
                         component="span"
-                        sx={{ mr: 2, display: { xs: 'block', md: 'block' }, fontSize:'13px', color:'black', textAlign:'center' }}
+                        sx={{ mr: 2, display: { xs: 'block', md: 'block' }, fontSize:'15px', color:'black', textAlign:'center' }}
                     >
                         <p>Come join in the community.</p>
                     </Typography>
@@ -82,7 +80,7 @@ const Login = () => {
                         >
                             Email
                             </Typography>
-                        <TextField placeholder="Your Email" type="email" fullWidth sx={{backgroundColor:"white", borderRadius:5}} onChange={(e) => setEmail(e.target.value)} />
+                        <TextField placeholder="Your Email" className="inputRounded" type="email" fullWidth sx={{backgroundColor:"white", borderRadius:'200px'}} onChange={(e) => setEmail(e.target.value)} />
                     </Grid>
                     <Grid item xs={12} md={12}>
                             <Typography
@@ -92,7 +90,7 @@ const Login = () => {
                         >
                             Password
                             </Typography>
-                        <TextField id="outlined-basic" placeholder="Password" type="password" variant="outlined" fullWidth sx={{backgroundColor:"white", borderRadius:5}} onChange={(e) => setPassword(e.target.value)} />
+                        <TextField id="outlined-basic" className="inputRounded" placeholder="Password" type="password" variant="outlined" fullWidth sx={{backgroundColor:"white" }} onChange={(e) => setPassword(e.target.value)} />
                     </Grid>
                     <Grid item xs={12} md={12}>
                         <Button variant="secondary" autoCapitalize="none" type='submit' sx={{backgroundColor:"#ffc13b", height:'100%', width:'30%', borderRadius:5, textTransform: 'none' }} onClick={handleLogin}>
