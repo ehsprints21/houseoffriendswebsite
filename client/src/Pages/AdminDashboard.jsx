@@ -58,11 +58,11 @@ const Board=()=>{
           }
       }
 
-      const handleEditDocuments= ()=>{
-        if (loggedUser) {
-            navigate(`/fileUploads`);
-          }
-      }
+      // const handleEditDocuments= ()=>{
+      //   if (loggedUser) {
+      //       navigate(`/fileUploads`);
+      //     }
+      // }
       
 
       const handleDetail= ()=>{

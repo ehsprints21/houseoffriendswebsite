@@ -177,7 +177,7 @@ const ListingCreation =()=> {
                                 >
                             Rate (₹/Month)
                             </Typography>
-                        <TextField className="inputRounded" id="outlined-basic" label="Rate" placeholder=" Charges in ₹ without any (,) or spaces" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setRate(e.target.value)} />
+                        <TextField required className="inputRounded" id="outlined-basic" label="Rate" placeholder=" Charges in ₹ without any (,) or spaces" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setRate(e.target.value)} />
                     </Grid>
                     <Grid item xs={12} md={12}>
                           <Typography
@@ -187,7 +187,7 @@ const ListingCreation =()=> {
                                 >
                             Time In Month
                             </Typography>
-                        <TextField className="inputRounded" id="outlined-basic" label="Time in Months" placeholder="Time in Months" variant="outlined" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTime(e.target.value)}/>
+                        <TextField required className="inputRounded" id="outlined-basic" label="Time in Months" placeholder="Time in Months" variant="outlined" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTime(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                       <Typography
@@ -220,7 +220,7 @@ const ListingCreation =()=> {
                                 >
                             Area (in sq ft.)
                             </Typography>
-                        <TextField className="inputRounded" id="outlined-basic" label="Area" placeholder="Area of plot/house in sq ft. in number" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setAmount(e.target.value)}/>
+                        <TextField required className="inputRounded" id="outlined-basic" label="Area" placeholder="Area of plot/house in sq ft. in number" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setAmount(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                             <Typography
@@ -231,6 +231,7 @@ const ListingCreation =()=> {
                             Address
                             </Typography>
                             <TextareaAutosize
+                                required
                               className="inputRounded"
                               aria-label="minimum height"
                               minRows={8}
@@ -247,7 +248,7 @@ const ListingCreation =()=> {
                                 >
                             PinCode
                             </Typography>
-                            <TextField className="inputRounded" id="outlined-basic" label="Pin Code" placeholder="Pin Code" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setPinCode(e.target.value)}/>
+                            <TextField required className="inputRounded" id="outlined-basic" label="Pin Code" placeholder="Pin Code" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setPinCode(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                             <Typography
@@ -257,7 +258,7 @@ const ListingCreation =()=> {
                                 >
                              City
                             </Typography>
-                        <TextField id="outlined-basic" className="inputRounded" label="City" placeholder="Enter your City" fullWidth value={city} sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setCity(e.target.value)}/>
+                        <TextField required id="outlined-basic" className="inputRounded" label="City" placeholder="Enter your City" fullWidth value={city} sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setCity(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                               <Typography
@@ -267,7 +268,7 @@ const ListingCreation =()=> {
                                 >
                              Title
                             </Typography>
-                        <TextField className="inputRounded" id="outlined-basic" label="Title" placeholder="Enter the Title" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTitle(e.target.value)}/>
+                        <TextField required className="inputRounded" id="outlined-basic" label="Title" placeholder="Enter the Title" fullWidth sx={{backgroundColor:"white"}} autoComplete="off" onChange={(e)=>setTitle(e.target.value)}/>
                     </Grid>
                     <Grid item xs={12} md={12}>
                           <Typography
@@ -278,6 +279,7 @@ const ListingCreation =()=> {
                              Description
                           </Typography>
                     <TextareaAutosize
+                        required
                         className="inputRounded"
                         aria-label="minimum height"
                         minRows={8}

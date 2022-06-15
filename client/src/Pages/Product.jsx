@@ -21,6 +21,7 @@ import { useNavigate } from "react-router-dom";
 const Product = () =>{
   const [listing,setListing] = useState({});
   const [pics, setPics] = useState([]);
+  const [location, setLocation] = useState(null);
   const [picVal, setPicVal] = useState(0);
   const loggedUser=useSelector((state)=>state.user.currentUser);
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Product = () =>{
       const res = await publicRequest.get(`/listing/showListing/${id}`);
       console.log(res.data);
       setListing(res.data);
+      setLocation(res.data.latLon);
       setPics(res.data.photos);
     }
     getListings()
@@ -166,7 +168,7 @@ const Product = () =>{
             </Grid>
             <Grid item xs={12} md={5}>
               <Card variant='elevation' elevation={1} sx={{margin:'2%', padding:'4%' }}>
-                <MapDisplay Latitude={listing.latLon.lat} Longitude={listing.latLon.lng}/>
+                { (location) ? <MapDisplay Latitude={listing.latLon.lat} Longitude={listing.latLon.lng}/> : null }
               </Card>
             </Grid>
 
