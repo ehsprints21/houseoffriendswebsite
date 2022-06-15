@@ -1,8 +1,8 @@
 import '../App.css';
-import Navbar from '../Components/Navbar';
-import BottomBar from '../Components/BottomBar';
-import Footer from '../Components/Footer';
-import Overlay from '../Components/Overlay';
+import Navbar from '../Components/CommonComponents/Navbar';
+import BottomBar from '../Components/CommonComponents/BottomBar';
+import Footer from '../Components/CommonComponents/Footer';
+import Overlay from '../Components/CommonComponents/Overlay';
 import MapRender from '../Components/ListingCreation.jsx/Map';
 import React, { useState,useEffect } from "react";
 import { userRequest, publicRequest } from "../Axios/requestMethods";

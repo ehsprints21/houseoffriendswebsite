@@ -1,7 +1,7 @@
 import '../App.css';
-import Navbar from '../Components/Navbar';
-import BottomBar from '../Components/BottomBar';
-import Footer from '../Components/Footer';
+import Navbar from '../Components/CommonComponents/Navbar';
+import BottomBar from '../Components/CommonComponents/BottomBar';
+import Footer from '../Components/CommonComponents/Footer';
 import MapDisplay from '../Components/ProductPage/MapDisplay';
 import React, { useState,useEffect } from "react";
 import { useParams } from 'react-router-dom';

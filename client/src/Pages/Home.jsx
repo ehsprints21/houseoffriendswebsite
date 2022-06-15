@@ -1,8 +1,8 @@
 import '../App.css';
-import Navbar from '../Components/Navbar';
+import Navbar from '../Components/CommonComponents/Navbar';
 import MailList from '../Components/MailList';
-import BottomBar from '../Components/BottomBar';
-import Footer from '../Components/Footer';
+import BottomBar from '../Components/CommonComponents/BottomBar';
+import Footer from '../Components/CommonComponents/Footer';
 import CardClickable from '../Components/CardClickable';
 import * as React from 'react';
 import Container from '@mui/material/Container';

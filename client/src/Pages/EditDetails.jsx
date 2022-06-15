@@ -1,7 +1,7 @@
 import '../App.css';
-import Navbar from '../Components/Navbar';
-import BottomBar from '../Components/BottomBar';
-import Footer from '../Components/Footer';
+import Navbar from '../Components/CommonComponents/Navbar';
+import BottomBar from '../Components/CommonComponents/BottomBar';
+import Footer from '../Components/CommonComponents/Footer';
 
 import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
