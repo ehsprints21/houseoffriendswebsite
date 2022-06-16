@@ -4,6 +4,7 @@ import BottomBar from '../Components/CommonComponents/BottomBar';
 import Footer from '../Components/CommonComponents/Footer';
 import Filter from '../Components/Listing/SelectFilter';
 import AreaFilter from '../Components/Listing/AreaFilter';
+import LocationFilter from '../Components/Listing/LocationFilter';
 import MediaCard from '../Components/Listing/ListingCard';
 import React, { useState,useEffect } from "react";
 import Typography from '@mui/material/Typography';
@@ -19,6 +20,7 @@ const Listing = () =>{
   const [tempListings,setTempListings] = useState([{}]);
   const [area, setArea] = useState('');
   const [criteria, setCriteria] = useState('');
+  const [location, setLocation] = useState('');
   
   useEffect(()=>{
     const getListings = async ()=>{
@@ -89,11 +91,29 @@ const Listing = () =>{
     areaFilter();
   },[area])
 
+  //--------------------HAndling State select filter
+  useEffect(()=>{
+    const filteredLocation = async ()=>{
+      let objLoc = await [...tempListings]
+      if (location==='India'){
+        await setListings([...objLoc])
+      }else{
+        objLoc = await objLoc.filter(obj => obj.state === location);
+        await setListings([...objLoc])
+        console.log(objLoc);
+      }
+    }
+    filteredLocation()
+  },[location])
+
   const childToArea=async (childdata)=>{
     await setArea(childdata);
   }
   const childToSelect=async (childdata)=>{
     await setCriteria(childdata);
+  }
+  const childToLocation=async (childdata)=>{
+    await setLocation(childdata);
   }
 
     return(
@@ -117,6 +137,7 @@ const Listing = () =>{
                   <AreaFilter childToArea={childToArea} />
                 </Grid>
                 <Grid item xs={3} md={3}>
+                  <LocationFilter childToLocation={childToLocation} />
                 </Grid>
                 <Grid item xs={3} md={3}>
                 </Grid>

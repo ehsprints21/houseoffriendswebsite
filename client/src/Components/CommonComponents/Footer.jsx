@@ -38,7 +38,12 @@ const Footer = () => {
           </Box>
         </Toolbar>
         <Box sx={{ display: { xs: 'flex', md: 'none' }, fontSize:'13px', textAlign:'center' }}>
+          <Typography
+            component="span"
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color:'black', fontSize:'13px' }}
+          >
             Copyright 2022. Dichroic Labs LLP All Rights Reserved. 
+          </Typography> 
         </Box>
         
         
@@ -49,7 +54,12 @@ const Footer = () => {
                     sx={{color: 'white', display: 'flex', textDecoration:'underline', fontSize:'11px'}}
                     key={index}
                 >
-                    {page}
+                    <Typography
+                    component="span"
+                    sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color:'black', fontSize:'13px', textTransform: 'none' }}
+                  >
+                   {page}
+                  </Typography>
                 </Button>
                 ))}
             </Box>
