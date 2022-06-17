@@ -191,7 +191,6 @@ const Home = () =>{
             </Grid>
             <MailList />
             <BottomBar />
-            <Footer />
         </div>  
     )
 }

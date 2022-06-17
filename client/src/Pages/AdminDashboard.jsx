@@ -100,7 +100,6 @@ const Board=()=>{
             </Box>
             
             <BottomBar />
-            <Footer />
         </div>
     )
 }

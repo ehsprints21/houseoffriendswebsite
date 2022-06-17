@@ -310,7 +310,6 @@ const ListingCreation =()=> {
       </Container>
     </Box>
     <BottomBar />
-    <Footer />
     </>
   );
 }

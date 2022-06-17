@@ -139,7 +139,6 @@ const Listing = () =>{
               </>}
                         
             <BottomBar />
-            <Footer />
           </>
     )
 }

@@ -179,7 +179,6 @@ const Product = () =>{
               </Grid>
             </Box>
                 <BottomBar />
-              <Footer />
             </Grid>
     )
 }

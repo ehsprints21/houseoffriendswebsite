@@ -101,7 +101,6 @@ const Finances = () => {
       </Container>
     </AppBar>
     <BottomBar />
-    <Footer />
     </div>
   );
 };

@@ -21,7 +21,6 @@ const Construction = () => {
                 </Typography>
             </Box>
             <BottomBar />
-            <Footer />
         </div>
   );
 };

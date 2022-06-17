@@ -127,7 +127,6 @@ const Login = () => {
       </Container>
     </Box>
     <BottomBar />
-    <Footer />
     </div>
   );
 };

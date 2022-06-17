@@ -89,7 +89,6 @@ const Register = () => {
       </Container>
     </AppBar>
     <BottomBar />
-    <Footer />
     </div>
   );
 };

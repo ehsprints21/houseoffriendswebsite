@@ -179,7 +179,6 @@ const Listing = () =>{
                 
             </Grid>
             <BottomBar />
-              <Footer />
             </>
     )
 }

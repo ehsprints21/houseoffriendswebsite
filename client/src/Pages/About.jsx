@@ -86,7 +86,6 @@ const About = () =>{
                 </Grid>
             </Box>
             <BottomBar />
-            <Footer />
         </div>  
     )
 }

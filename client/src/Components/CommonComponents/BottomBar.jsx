@@ -1,5 +1,6 @@
 import '../../App.css';
 import * as React from 'react';
+import Footer from './Footer';
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -13,6 +14,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 const BottomBar = () => {
   
   return (
+    <>
     <AppBar position="static" sx={{ backgroundColor:'white', paddingLeft:'7%', paddingRight:'7%', paddingBottom:'2%', borderBottomStyle:'ridge', borderBottomColor:'black'}}>
       <Container maxWidth="xl">
         <Grid container spacing={2}>
@@ -208,8 +210,12 @@ const BottomBar = () => {
                     <li><a href="/" className='bottomLink'>Recordings</a></li>
           </Typography>
         </Toolbar> */}
+        
       </Container>
+      
     </AppBar>
+    <Footer />
+    </>
   );
 };
 export default BottomBar;

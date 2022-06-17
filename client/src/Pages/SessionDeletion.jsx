@@ -98,7 +98,6 @@ const SessionDeletion = () =>{
               </Grid>
             </Box>
                 <BottomBar />
-              <Footer />
             </Grid>
     )
 }
