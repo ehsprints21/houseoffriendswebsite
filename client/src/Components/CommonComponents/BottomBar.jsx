@@ -15,7 +15,7 @@ const BottomBar = () => {
   
   return (
     <>
-    <AppBar position="static" sx={{ backgroundColor:'white', paddingLeft:'7%', paddingRight:'7%', paddingBottom:'2%', borderBottomStyle:'ridge', borderBottomColor:'black'}}>
+    <AppBar position="static" sx={{ backgroundColor:'white', padding:'3% 7%'}}>
       <Container maxWidth="xl">
         <Grid container spacing={2}>
           <Grid item xs={12} md={4} sx={{position:'relative' }}>

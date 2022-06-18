@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 export default function MediaCard(props) {
   return (
     <>
-      <Card variant='elevation' elevation={4} sx={{ padding:'0', display: { xs: 'block', md: 'none' } }}>
+      <Card variant='elevation' elevation={4} sx={{ padding:'0', display: { xs: 'block', md: 'none' }, borderRadius:5 }}>
       <CardMedia
         component="img"
         image={props.Photo}
@@ -28,7 +28,7 @@ export default function MediaCard(props) {
       </CardActions>
     </Card>
 
-    <Card variant='elevation' elevation={4} sx={{ width:'100%', padding:'2%', display: { xs: 'none', md: 'block' } }}>
+    <Card variant='elevation' elevation={4} sx={{ width:'100%', padding:'6%', display: { xs: 'none', md: 'block' }, borderRadius:5 }}>
       <CardMedia
         component="img"
         image={props.Photo}
@@ -42,8 +42,9 @@ export default function MediaCard(props) {
             {props.Message}
         </Typography>
       </CardContent>
-      <CardActions sx={{padding:'0 30%'}}>
-        <Button variant="secondary" size="large" sx={{backgroundColor:'#ffc13b'}}>{props.Link1}</Button>
+      <CardActions sx={{padding:'0 20%'}}>
+        <Button variant="secondary" fullWidth sx={{backgroundColor:'#ffc13b'}}>{props.Link1}</Button>
+        <br/><br/><br/>
       </CardActions>
     </Card>
     </>

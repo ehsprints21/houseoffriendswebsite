@@ -12,7 +12,7 @@ const pages = ['Disclaimer','Privacy','Terms & Conditions'];
 const Footer = () => {
   
   return (
-    <AppBar position="static" sx={{backgroundColor: 'inherit', paddingLeft:'8%', paddingRight:'8%' }}>
+    <AppBar position="static" sx={{backgroundColor: 'inherit', paddingLeft:'8%', paddingRight:'8%', borderTopStyle:'ridge' }}>
       <Container maxWidth="xl" sx={{ paddingTop:'0', paddingBottom: '0', margin:'0'}}>
         <Toolbar sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
           <Typography

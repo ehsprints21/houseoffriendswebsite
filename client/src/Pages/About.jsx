@@ -17,7 +17,7 @@ const About = () =>{
                 <Grid item xs={12} md={6}>
                 <div>
                     <Typography
-                        variant="b"
+                        variant="h5"
                         component="div"
                         sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, padding:'3% 5%', textAlign:'center', color:'#FFB923' }}
                         >
@@ -37,7 +37,7 @@ const About = () =>{
                 <Grid item xs={12} md={6}>
                     <div>
                         <Typography
-                            variant="b"
+                            variant="h5"
                             component="div"
                             sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, padding:'3% 5%', textAlign:'center', color:'#FFB923' }}
                             >
@@ -47,7 +47,7 @@ const About = () =>{
                         <Typography
                             variant="p"
                             component="div"
-                            sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, padding:'3% 5%', textAlign:'left' }}
+                            sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, padding:'3% 5%', textAlign:'left', color:'text.secondary' }}
                             >
                                 uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br /><br />
                                 

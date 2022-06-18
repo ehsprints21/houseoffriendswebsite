@@ -33,7 +33,7 @@ const ResponsiveAppBar = () => {
 
   useEffect( () => {
     if (loggedUser) {
-      setLogOption("Profile");
+      setLogOption("Account");
     }else{
       setLogOption("Login/Register");
     }

@@ -41,7 +41,7 @@ const Home = () =>{
 
                                     
                             </Typography>
-                            <Button variant="contained" type='submit' sx={{backgroundColor:"#ffc13b", width:'25%', height:'100%' }}>See How It works</Button>
+                            <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'25%', height:'100%' }}>See How It works</Button>
                         </Box>
                     </Grid>
                 </Grid>
@@ -93,7 +93,7 @@ const Home = () =>{
                         <Typography
                             variant='object2'
                             component="span"
-                            sx={{  display: { xs: 'none', md: 'block' }, fontSize:'15px', color:'black', textAlign:'left', padding:'0 15%' }}
+                            sx={{  display: { xs: 'none', md: 'block' }, fontSize:'17px', color:'text.secondary', textAlign:'left', padding:'0 15%' }}
                             >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                                      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e
                                     xercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -103,7 +103,7 @@ const Home = () =>{
                         <Typography
                             variant='object2'
                             component="span"
-                            sx={{  display: { xs: 'block', md: 'none' }, fontSize:'15px', color:'black', textAlign:'left', padding:'0 5%' }}
+                            sx={{  display: { xs: 'block', md: 'none' }, fontSize:'17px', color:'text.secondary', textAlign:'left', padding:'0 5%' }}
                             >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                                      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e
                                     xercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -111,10 +111,12 @@ const Home = () =>{
                                 <br />
                         </Typography>
                         <br />
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"#ffc13b", width:'50%', height:'100%' }}>Contact Us to Know More</Button>
+                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'50%', height:'100%' }}>Contact Us to Know More</Button>
                     </Container>
                 </Grid>
-
+                <Grid item xs={12} md={12}>
+                    <><br/><br/><br/><br/></>
+                </Grid>
                 <Grid item xs={12} md={12}>
                     <Typography
                         variant='h4'
@@ -168,7 +170,7 @@ const Home = () =>{
                         <Typography
                             variant='object2'
                             component="span"
-                            sx={{  display: { xs: 'none', md: 'block' }, fontSize:'15px', color:'black', textAlign:'center', padding:'0 15%' }}
+                            sx={{  display: { xs: 'none', md: 'block' }, fontSize:'17px', color:'text.secondary', textAlign:'center', padding:'0 15%' }}
                             >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                                      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud e
                                     xercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -186,10 +188,11 @@ const Home = () =>{
                                 <br />
                         </Typography>
                         <br /><br />
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"#ffc13b" }}>Know More</Button>
+                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b" }}>Know More</Button>
+                        <br/><br/><br/>
                 </Grid>
             </Grid>
-            <MailList />
+            {/* <MailList /> */}
             <BottomBar />
         </div>  
     )
