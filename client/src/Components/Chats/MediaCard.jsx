@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { userRequest } from "../../Axios/requestMethods";
+import { userRequest, publicRequest } from "../../Axios/requestMethods";
 import {useSelector} from 'react-redux';
 
 function MediaCard(props) {
     const loggedUser=useSelector((state)=>state.user.currentUser);
     const [conversationName, setConversationName] = useState(null);
-  
+    const [productName, setProductName] = useState('');
+
     useEffect(()=>{
         const getConversationName = async ()=>{
           let k=""
@@ -18,18 +19,25 @@ function MediaCard(props) {
           k = await userRequest.get(`/conversations/find/${props.message.members[1]}`);
         }
         await setConversationName(k.data.username);
+        const productId=await temp.product;
+        const resp=await publicRequest.get(`/listing/showListing/${productId}`);
+        setProductName(resp.data.title);
       }
       getConversationName()
     },[props, loggedUser._id]);
   
     const handleChatId=()=>{
-      props.childToParent(props.message._id);
+      props.childToParent({convId:props.message._id, prodName: productName});
     }
   
       return (
-              <Button fullWidth sx={{textAlign:'left', backgroundColor:'inherit', textTransform: 'none'}} onClick={handleChatId} >
+              <Button fullWidth sx={{ backgroundColor:'inherit', display:'block'}} onClick={handleChatId} >
                     <Typography variant="object-2" color="text.secondary" sx={{textAlign:'left'}} >
-                      { conversationName }
+                     { conversationName }
+                    </Typography>
+                    <br/>
+                    <Typography variant="object-2" noWrap color="text.secondary" sx={{textAlign:'right'}} >
+                      { productName }
                     </Typography>
               </Button>
       );

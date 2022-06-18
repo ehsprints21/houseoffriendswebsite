@@ -22,11 +22,13 @@ const Listing = () =>{
   const [chat, setChat] = useState([{}]);
   const loggedUser=useSelector((state)=>state.user.currentUser);
   const [chatId, setChatId] = useState(null);
+  const [chatProdName, setChatProdName] = useState('');
   const textInput = useRef(null);
   const messageEl = useRef(null);
 
   const childToParent = (childdata) => {
-    setChatId(childdata);
+    setChatId(childdata.convId);
+    setChatProdName(childdata.prodName);
   }
 
   setInterval(()=>{setNos(Math.floor(Math.random() * 10))}, 10000);
@@ -92,6 +94,15 @@ const Listing = () =>{
                {(chatId) ? 
               <>
               <Box ref={messageEl} sx={{width: '67%', height:'78vh', borderRightStyle:'ridge', overflowY:'scroll', float:'right' }}>
+                <Box sx={{ position: 'sticky', top: 5, backgroundColor:'#F5F5F5'}}>
+                  <Typography
+                              variant="h5"
+                              component="div"
+                              sx={{ mr: 2,  padding:'1% 5%', textAlign:'center', color:'text.secondary' }}
+                              >
+                                  {chatProdName}
+                </Typography>
+                </Box>
                 <Typography
                               variant="h5"
                               component="div"
