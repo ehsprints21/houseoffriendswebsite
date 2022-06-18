@@ -13,15 +13,35 @@ import AdminBoard from './Pages/AdminDashboard';
 import EditDetails from './Pages/EditDetails';
 import FileUpload from './Pages/FileUpload';
 import { useNavigate } from "react-router-dom";
-
 import {Routes,Route} from "react-router-dom";
+
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+
+
 import { useDispatch, useSelector } from "react-redux";
+
+const theme = createTheme({
+  typography: {
+    button: {
+      textTransform: "none"
+    },
+    fontFamily: [
+      "Lato",
+      "Roboto",
+      "Helvetica Neue",
+      "Arial",
+      "sans-serif"
+    ].join(",")
+  }
+});
+
 
 function App() {
   const dispatch = useDispatch();
     const loggeduser = useSelector((state)=>state.user.currentUser);
     const navigate= useNavigate();
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
@@ -41,6 +61,7 @@ function App() {
         <Route path="/fileUploads" element={<FileUpload />} />
       </Routes>
     </div>
+    </ThemeProvider>
   );
 }
 
