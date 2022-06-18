@@ -149,7 +149,7 @@ const ListingCreation =()=> {
   return (
       <>
       <Navbar />
-    <Box position="static" sx={{ padding:'2% 7%', margin:'7% 0'}}>
+    <Box position="static" sx={{ padding:'2% 7%', margin:'2% 0'}}>
       <Container maxWidth="md">
       
         <Toolbar sx={{ display: { xs: 'block', md: 'block' } }}>
@@ -290,6 +290,9 @@ const ListingCreation =()=> {
                     </Grid>
                     <Grid item xs={12} md={12}>
                         <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={showWidget}>Upload Photos</Button>
+                        
+                    </Grid>
+                    <Grid item xs={12} md={12}>
                     </Grid>
                     {photos.map( (e, index) =>
                         <div key={index} >
@@ -299,6 +302,7 @@ const ListingCreation =()=> {
         )}
         
                     <p>{opn}</p>
+                    
                     <MapRender childToParent={childToParent}/>
                     <Grid item xs={12} md={12}>
                         <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleClick} >Submit</Button>

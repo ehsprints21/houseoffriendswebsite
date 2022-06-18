@@ -68,7 +68,7 @@ const Login = () => {
                         component="span"
                         sx={{ mr: 2, display: { xs: 'block', md: 'block' }, fontSize:'15px', color:'black', textAlign:'center' }}
                     >
-                        <p>Come join in the community.</p>
+                        <p>Come join the community.</p>
                     </Typography>
         
                     </Grid>

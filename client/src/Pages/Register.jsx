@@ -74,7 +74,14 @@ const Register = () => {
                     
                     
                     <Grid item xs={12} md={12}>
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none'  }} onClick={handleRegister}>Register</Button>
+                        <Button variant="Secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'30%', height:'100%', borderRadius:5  }} onClick={handleRegister}>
+                            <Typography
+                                component="span"
+                                sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
+                            >
+                            Register Instead
+                            </Typography>   
+                        </Button>
                     </Grid>
                     <Typography
                         component="span"

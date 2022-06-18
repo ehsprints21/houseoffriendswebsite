@@ -84,7 +84,7 @@ const SessionDeletion = () =>{
             <Box width={'100%'} sx={{padding:'5% 15%'}}>
               <Grid container spacing={1}>
                 
-                    {listings.map((item) =><Grid item xs={12} md={6} lg={4} key={item} >
+                    {listings.map((item, index) =><Grid item xs={12} md={6} lg={4} key={index} >
                     <MediaCard photo={item.titlePhoto}
                                                 rate={'₹ '+ item.rate} 
                                                 title={item.title} 

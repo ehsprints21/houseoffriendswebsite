@@ -121,7 +121,7 @@ const Listing = () =>{
             <Navbar />
 
             <Grid container spacing={1} alignItems="center" sx={{minHeight:'90vh'}}>
-            <Grid item xs={12} md={12}>
+            {/* <Grid item xs={12} md={12}>
                         
                         <Typography
                             variant="h5"
@@ -130,7 +130,7 @@ const Listing = () =>{
                             >
                                 Plots
                         </Typography>
-            </Grid>
+            </Grid> */}
             <Box width={'100%'} sx={{padding:'1% 10%'}}>
               <Grid container spacing={1}>
                 <Grid item xs={3} md={3}>

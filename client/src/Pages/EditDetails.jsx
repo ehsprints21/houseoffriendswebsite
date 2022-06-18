@@ -75,7 +75,14 @@ const Finances = () => {
                     
                     
                     <Grid item xs={12} md={12}>
-                        <Button variant="contained" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleDetails}>Submit</Button>
+                        <Button variant="Secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'30%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleDetails}>
+                            <Typography
+                                component="span"
+                                sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
+                            >
+                            Submit
+                            </Typography>
+                        </Button>
                     </Grid> 
                 </Grid>
             </form>

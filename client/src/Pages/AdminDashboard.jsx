@@ -74,13 +74,13 @@ const Board=()=>{
         <div>
             <Navbar />
             <Box sx={{height:'80vh'}}>
-              <Grid container spacing={1} >
-                  <Grid item xs={6} sm={6} md={6} sx={{display:'flex'}}>
+              <Grid container spacing={1} sx={{marginTop:5}}>
+                  <Grid item xs={6} sm={6} md={6}>
                     <Typography variant="h5" sx={{color:'black', textAlign:'center', padding:'2% 20%'}}>
                       Dashboard
                     </Typography>
                   </Grid>
-                  <Grid item xs={6} sm={6} md={6} sx={{display:'flex'}}>
+                  <Grid item xs={6} sm={6} md={6}>
                     <Typography variant="h5" sx={{color:'black', textAlign:'center', padding:'2% 15%'}}>
                       {user.username}
                     </Typography>
