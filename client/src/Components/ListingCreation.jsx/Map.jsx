@@ -9,7 +9,7 @@ export default function App({childToParent}) {
   return (
     <>
       <Map
-        zoom={3}
+        zoom={4}
         markers={[
           {
             position: [latlng.lat, latlng.lng],

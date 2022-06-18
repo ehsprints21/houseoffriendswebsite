@@ -11,7 +11,7 @@ export default function BasicSelect({childToLocation}) {
   const handleChange = (event) => {
     setCriteria(event.target.value);
     childToLocation(event.target.value);
-    console.log(event.target.value);
+    //console.log(event.target.value);
   };
 
   return (

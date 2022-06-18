@@ -28,10 +28,10 @@ const Login = () => {
     const loggedInUser=useSelector((state)=>state.user.currentUser);
     useEffect( () => {
         let path = `/adminPanel`; 
-        console.log(loggedInUser);
         if (loggedInUser) {
-          setUser(loggedInUser); 
-          navigate(path);
+          setUser(loggedInUser);
+        //   navigate(path);
+          window.location.href = "/adminPanel";
             }else{
                 if(val){
                     setErr("Check Email/ Password");
@@ -45,7 +45,7 @@ const Login = () => {
         setVal(true);
         try{
            const x= await login(dispatch, { email, password });
-           console.log(x);
+           
         }catch(er){
             setErr("Check Email/ Password");
         }

@@ -38,7 +38,7 @@ const Contact = () =>{
                 </Grid>
 
                         <Grid container spacing={0} sx={{margin:'5% 20%', alignItems:'center', position:'relative', left:'5%'}}>
-                            <Grid item xs={12} md={4} >
+                            <Grid item xs={12} md={4} sx={{marginBottom: 5}}>
                                 <Card variant='elevation' elevation={4} sx={{ width:200, height:250, padding:'2%', alignSelf:'center' }}>
                                     <CardMedia
                                         width="50"
@@ -59,7 +59,7 @@ const Contact = () =>{
                                 </Card>
                             </Grid>
 
-                            <Grid item xs={12} md={4}>
+                            <Grid item xs={12} md={4} sx={{marginBottom: 5}}>
                                  <Card variant='elevation' elevation={4} sx={{ width:200, height:250 ,padding:'2%', alignSelf:'center' }}>
                                         <CardMedia
                                             width="50"
@@ -82,7 +82,7 @@ const Contact = () =>{
                                 </Card>
                             </Grid>
 
-                            <Grid item xs={12} md={4} >
+                            <Grid item xs={12} md={4} sx={{marginBottom: 5}} >
                             <Card variant='elevation' elevation={4} sx={{ width:200, height:250, padding:'2%', alignSelf:'center'}}>
                                         <CardMedia
                                             width="50"

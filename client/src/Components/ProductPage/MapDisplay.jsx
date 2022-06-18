@@ -20,10 +20,10 @@ export default function App(props) {
             draggable: false,
             title: `${latlng.lat + " " + latlng.lng}`,
             onClick: (e) => {
-              console.log("clicked ");
+              //console.log("clicked ");
             },
             onDragend: (e) => {
-              console.log("dragged");
+              //console.log("dragged");
             }
           }
         ]}

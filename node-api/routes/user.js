@@ -6,6 +6,26 @@ const {verifyToken, verifyTokenAndAuthorization, verifyAdmin} = require("../midd
 
 //---------------------------------------REGISTERING NEW USER-----------------------------
 
+router.put("/updateUserName/:userId",verifyTokenAndAuthorization, async (req,res)=>{
+
+    const result = await User.findOne({email:req.body.email})
+        if(result){
+        try{
+            const passcheck=req.body.pass;
+            const name = req.body.name
+        if (CryptoJS.AES.decrypt(result.password, process.env.PASS_SEC).toString(CryptoJS.enc.Utf8)===passcheck){
+            let k =  await User.findByIdAndUpdate(req.params.userId, {
+                username:name
+                }, {new: true}
+                    )
+                res.json(k);
+        }
+        console.log('hi');
+        }catch(err){
+        res.status(101).send("error in updating.");
+    }}
+})
+
 router.put("/updateUserInfos/:userId",verifyTokenAndAuthorization, async (req,res)=>{
 
     const result = await User.findOne({email:req.body.email})

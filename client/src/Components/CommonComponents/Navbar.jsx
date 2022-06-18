@@ -19,11 +19,12 @@ import { Link } from 'react-router-dom';
 
 const ResponsiveAppBar = () => {
   const [logOption, setLogOption]=useState('Login/Register')
+  const [logPath, setLogPath]=useState('/login')
   const pages = [<Link className='navMenu' to='/sessions'>Products</Link>,
   <Link className='navMenu' to='/sessions'>Plots</Link>,
   <Link className='navMenu' to='/aboutUs'>About Us</Link>,
   <Link className='navMenu' to='/contact'>Contact Us</Link>,
-  <Link className='navMenu' to='/login'>{logOption}</Link>];
+  <Link className='navMenu' to={logPath}>{logOption}</Link>];
   
   const [anchorElNav, setAnchorElNav] = useState(null);
   
@@ -34,8 +35,10 @@ const ResponsiveAppBar = () => {
   useEffect( () => {
     if (loggedUser) {
       setLogOption("Account");
+      setLogPath("/adminPanel")
     }else{
       setLogOption("Login/Register");
+      setLogPath("/login")
     }
   }, [loggedUser]);
 

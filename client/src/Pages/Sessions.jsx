@@ -27,7 +27,7 @@ const Listing = () =>{
       const res = await publicRequest.get(`/listing/showListingsAll`);
       setListings(res.data);
       setTempListings(res.data);
-      console.log(res.data);
+      //console.log(res.data);
     }
     getListings()
   },[]);
@@ -39,17 +39,17 @@ const Listing = () =>{
         var obj = await [...listings]
         await obj.sort((a,b) =>{ return a.rate - b.rate});
         await setListings([...obj])
-        console.log(obj);
+        //console.log(obj);
       }else if(criteria==='Decreasing'){
         var obj2 = await [...listings]
         await obj2.sort((a,b) =>{ return b.rate - a.rate});
         await setListings([...obj2])
-        console.log(obj2);
+        //console.log(obj2);
       }else if(criteria==='Latest'){
         var obj3 = await [...listings]
         await obj3.sort((a,b) =>{ return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()});
         await setListings([...obj3])
-        console.log(obj3);
+        //console.log(obj3);
       }
     }
     filtered()
@@ -65,7 +65,7 @@ const Listing = () =>{
           // code block
           objArea = await objArea.filter(obj => obj.area <= 500);
           await setListings([...objArea]);
-          console.log(objArea.length);
+          //console.log(objArea.length);
           break;
         case 1000:
           // code block

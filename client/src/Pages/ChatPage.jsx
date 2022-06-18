@@ -147,8 +147,7 @@ const Listing = () =>{
                 <ChatCard message={{text:"hello world more messages are coming select chats on left..."}} />
                 
               </Box>
-              </>}
-                        
+              </>}    
             <BottomBar />
           </>
     )

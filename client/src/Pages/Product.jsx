@@ -29,7 +29,7 @@ const Product = () =>{
   useEffect(()=>{
     const getListings = async ()=>{
       const res = await publicRequest.get(`/listing/showListing/${id}`);
-      console.log(res.data);
+      
       setListing(res.data);
       setLocation(res.data.latLon);
       setPics(res.data.photos);

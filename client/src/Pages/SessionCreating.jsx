@@ -66,7 +66,7 @@ const ListingCreation =()=> {
       const f=async ()=>{
         if (pinCode.length===6) {
           const res = await userRequest.post("/listing/usePincode", {pinCode:pinCode});
-          console.log(res.data);
+        //   console.log(res.data);
           setState(res.data.State);
           setCity(res.data.City);
         }
@@ -93,7 +93,7 @@ const ListingCreation =()=> {
                 }catch(err){
                     console.log(err);
                 } 
-                  console.log(result);
+                //   console.log(result);
             }
         }
       );
@@ -142,7 +142,7 @@ const ListingCreation =()=> {
 
         const childToParent = (childdata) => {
           setData(childdata);
-          console.log(data);
+        //   console.log(data);
         }
 
 
@@ -289,7 +289,7 @@ const ListingCreation =()=> {
                     />
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={showWidget}>Upload Photos</Button>
+                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'30%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={showWidget}>Upload Photos</Button>
                         
                     </Grid>
                     <Grid item xs={12} md={12}>
@@ -305,7 +305,7 @@ const ListingCreation =()=> {
                     
                     <MapRender childToParent={childToParent}/>
                     <Grid item xs={12} md={12}>
-                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'70%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleClick} >Submit</Button>
+                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'30%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleClick} >Submit</Button>
                     </Grid>  
                 </Grid>
             </form>

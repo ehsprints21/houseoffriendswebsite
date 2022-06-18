@@ -34,7 +34,7 @@ const MailList = () => {
         const res = await publicRequest.post(`/email/createEmail`,user);
         
         
-        console.log (res.data);
+        //console.log (res.data);
         window.location.reload(true);
     }
 
