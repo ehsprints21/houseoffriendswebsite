@@ -36,25 +36,29 @@ router.post('/registration', (req,res)=>{
 //---------------------------------   -LOGIN-      --------------------------
 router.post("/login", (req,res)=>{
     User.findOne({email:req.body.email}, (err,result)=>{
-        if(result)
-        try{
-            const passcheck=req.body.password;
-        if (CryptoJS.AES.decrypt(result.password, process.env.PASS_SEC).toString(CryptoJS.enc.Utf8)===passcheck)
-        try{
-//--------------------------------JSON WEBTOKEN CREATION------------
-            const accessToken = jwt.sign({
-                id:result._id,
-                isAdmin:result.isAdmin,
-            }, process.env.JWT_SEC,
-                {expiresIn:"30d"}
-            );
-            const {password,...others}=result._doc;   
-            res.json({...others, accessToken});
-        }catch(err){
-            err.json('Cannot Login Check email/password')
-        }
-        }catch(err){
-            err.send("No such user Found.")
+        if(result){
+            try{
+                const passcheck=req.body.password;
+            if (CryptoJS.AES.decrypt(result.password, process.env.PASS_SEC).toString(CryptoJS.enc.Utf8)===passcheck){
+                try{
+                    //--------------------------------JSON WEBTOKEN CREATION------------
+                    const accessToken = jwt.sign({
+                        id:result._id,
+                        isAdmin:result.isAdmin,
+                    }, process.env.JWT_SEC,
+                        {expiresIn:"30d"}
+                    );
+                    const {password,...others}=result._doc;   
+                    res.json({...others, accessToken});
+                    }catch(err){
+                        err.json('Cannot Login Check email/password')
+                    }
+            }else{
+                res.json(null)
+            }
+            }catch(err){
+                err.send("No such user Found.")
+            }
         }
     })
 })

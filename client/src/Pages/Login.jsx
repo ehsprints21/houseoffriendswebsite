@@ -20,6 +20,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [user, setUser] = useState();
     const [err, setErr] = useState("");
+    const [val, setVal] = useState(false);
     const dispatch = useDispatch();
     const { isFetching, error }= useSelector((state)=> state.user);
     const navigate = useNavigate();
@@ -27,17 +28,24 @@ const Login = () => {
     const loggedInUser=useSelector((state)=>state.user.currentUser);
     useEffect( () => {
         let path = `/adminPanel`; 
+        console.log(loggedInUser);
         if (loggedInUser) {
           setUser(loggedInUser); 
           navigate(path);
+            }else{
+                if(val){
+                    setErr("Check Email/ Password");
+                }
             }
-         }, [loggedInUser]);
+         }, [loggedInUser, val]);
 
     const handleLogin=async (e)=>{
         e.preventDefault();
   // send the username and password to the server
+        setVal(true);
         try{
            const x= await login(dispatch, { email, password });
+           console.log(x);
         }catch(er){
             setErr("Check Email/ Password");
         }

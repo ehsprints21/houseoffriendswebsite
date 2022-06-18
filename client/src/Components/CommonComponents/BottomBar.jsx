@@ -55,8 +55,8 @@ const BottomBar = () => {
               variant="object-2"
               sx={{ mr: 2, display: { xs: 'block', md: 'block' }, paddingBottom:'2%', paddingTop:'3%', color:'black' }}
             >
-                <Link href="#" color="inherit" underline="none">About Us</Link><br/><br/>
-                <Link href="#" color="inherit" underline="none">Contact Us</Link><br/><br/>
+                <Link href="/aboutUs" color="inherit" underline="none">About Us</Link><br/><br/>
+                <Link href="/contact" color="inherit" underline="none">Contact Us</Link><br/><br/>
             </Typography>
 
           </Grid>

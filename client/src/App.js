@@ -1,5 +1,6 @@
 import './App.css';
 import About from './Pages/About';
+import Contact from './Pages/ContactUs';
 import Sessions from './Pages/Sessions';
 import Product from './Pages/Product';
 import Home from './Pages/Home';
@@ -45,7 +46,6 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/aboutUs" element={<About />} /> */}
         <Route path="/Product/:id" element={<Product />} />
         <Route path="/sessions" element={<Sessions />} />
         <Route path="/construction" element={<Construction />} />
@@ -55,7 +55,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/aboutUs" element={<About />} />
-        <Route path="/contact" element={<Construction />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/adminPanel" element={<AdminBoard />} />
         <Route path="/editDetails" element={<EditDetails />} />
         <Route path="/fileUploads" element={<FileUpload />} />
