@@ -27,9 +27,10 @@ const Login = () => {
 
     const loggedInUser=useSelector((state)=>state.user.currentUser);
     useEffect( () => {
-        let path = `/adminPanel`; 
+        const handler= async ()=>{
+            let path = `/adminPanel`; 
         if (loggedInUser) {
-          setUser(loggedInUser);
+          await setUser(loggedInUser);
         //   navigate(path);
           window.location.href = "/adminPanel";
             }else{
@@ -37,6 +38,8 @@ const Login = () => {
                     setErr("Check Email/ Password");
                 }
             }
+        }
+        handler();
          }, [loggedInUser, val]);
 
     const handleLogin=async (e)=>{

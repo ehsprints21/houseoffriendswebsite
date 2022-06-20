@@ -13,7 +13,7 @@ function MediaCard(props) {
         const getConversationName = async ()=>{
           let k=""
           let temp=await props?.message
-        if(loggedUser._id === temp.members[1]){ 
+        if(loggedUser._id === await temp.members[1]){ 
           k = await userRequest.get(`/conversations/find/${props.message.members[0]}`);
         }else{
           k = await userRequest.get(`/conversations/find/${props.message.members[1]}`);
@@ -27,11 +27,12 @@ function MediaCard(props) {
     },[props, loggedUser._id]);
   
     const handleChatId=()=>{
+      console.log(props);
       props.childToParent({convId:props.message._id, prodName: productName});
     }
   
       return (
-              <Button fullWidth sx={{ backgroundColor:'inherit', display:'block'}} onClick={handleChatId} >
+              <Button fullWidth sx={{ backgroundColor:'inherit', display:'block', padding:0}} onClick={handleChatId}  >
                     <Typography variant="object-2" color="text.secondary" sx={{textAlign:'left'}} >
                      { conversationName }
                     </Typography>

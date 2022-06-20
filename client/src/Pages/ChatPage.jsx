@@ -27,6 +27,7 @@ const Listing = () =>{
   const messageEl = useRef(null);
 
   const childToParent = (childdata) => {
+    console.log(childdata)
     setChatId(childdata.convId);
     setChatProdName(childdata.prodName);
   }
@@ -82,8 +83,8 @@ const Listing = () =>{
                                   People
                 </Typography>
 
-                      {conversations.map((item) =><>
-                        <MediaCard message={item} key={item.id} childToParent={childToParent}/>
+                      {conversations.map((item, index) =><>
+                        <MediaCard message={item} key={index} childToParent={childToParent}/>
                       <hr />
                       </>
                        )}
@@ -93,7 +94,7 @@ const Listing = () =>{
 
                {(chatId) ? 
               <>
-              <Box ref={messageEl} sx={{width: '67%', height:'78vh', borderRightStyle:'ridge', overflowY:'scroll', float:'right' }}>
+              <Box ref={messageEl} sx={{width: '74%', height:'78vh', borderRightStyle:'ridge', overflowY:'scroll', float:'right' }}>
                 <Box sx={{ position: 'sticky', top: 5, backgroundColor:'#F5F5F5'}}>
                   <Typography
                               variant="h5"
@@ -114,8 +115,8 @@ const Listing = () =>{
                 {chat.map((item, index) =><ChatCard message={item} key={index} /> )}
                 
               </Box>
-              <Box sx={{width: '67%', borderRightStyle:'ridge', float:'right' }}>
-                <Grid container spacing={0} sx={{backgroundColor:'inherit' }}>
+              <Box sx={{width: '74%', borderRightStyle:'ridge', float:'right' }}>
+                <Grid container spacing={0} sx={{backgroundColor:'white', borderTopStyle:'ridge', padding:'2%' }}>
                   <Grid item xs={9} md={9} >
                     <TextField
                           aria-label="minimum height"

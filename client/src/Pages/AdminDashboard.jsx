@@ -94,8 +94,10 @@ const Board=()=>{
                   <Button variant="contained dark" sx={{ display:'inline-block', margin:'1%'}} onClick={handleEditDetail} ><ButtonCard Title="Edit Details" Photo="..\assets\Asset 10NPOCA Website.png"></ButtonCard></Button>
                   {/* <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%'}} onClick={handleEditDocuments} ><ButtonCard Title="Add Documents"></ButtonCard></Button> */}
               </Box>
-              <Box sx={{ display:'block'}}>
-                  <Button variant="contained dark" sx={{ display:'inline-block', margin:'4%', borderRadius:5, textTransform: 'none'}} onClick={handleLogout} >Logout</Button>
+              <Box sx={{ display:'block', marginTop:'2%'}}>
+              <Button variant="secondary" autoCapitalize="none" type='submit' sx={{backgroundColor:"#ffc13b", height:'100%', width:'10%', borderRadius:5, textTransform: 'none' }} onClick={handleLogout} >
+                Logout
+              </Button>
               </Box>
             </Box>
             
