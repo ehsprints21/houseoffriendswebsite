@@ -58,6 +58,8 @@ const Product = () =>{
     // console.log(res);
   }
 
+  
+
     return(
             <Grid container spacing={0} alignItems="center">
             <Navbar />

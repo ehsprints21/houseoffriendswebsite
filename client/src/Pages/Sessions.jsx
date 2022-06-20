@@ -7,7 +7,8 @@ import AreaFilter from '../Components/Listing/AreaFilter';
 import LocationFilter from '../Components/Listing/LocationFilter';
 import MediaCard from '../Components/Listing/ListingCard';
 import React, { useState,useEffect } from "react";
-import Typography from '@mui/material/Typography';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { publicRequest } from "../Axios/requestMethods";
@@ -21,6 +22,7 @@ const Listing = () =>{
   const [area, setArea] = useState('');
   const [criteria, setCriteria] = useState('');
   const [location, setLocation] = useState('');
+  const [number,setNumber] = useState(9);
   
   useEffect(()=>{
     const getListings = async ()=>{
@@ -116,11 +118,19 @@ const Listing = () =>{
     await setLocation(childdata);
   }
 
+  const handleLoadMore= async()=>{
+    setNumber(number+9);
+  }
+  const handleLoadLess= async()=>{
+    if(number>=9){
+      setNumber(number-9);
+    }
+  }
     return(
             <>
             <Navbar />
 
-            <Grid container spacing={1} alignItems="center" sx={{minHeight:'90vh'}}>
+            <Grid container spacing={1} alignItems="center" >
             {/* <Grid item xs={12} md={12}>
                         
                         <Typography
@@ -131,21 +141,20 @@ const Listing = () =>{
                                 Plots
                         </Typography>
             </Grid> */}
-            <Box width={'100%'} sx={{padding:'1% 10%'}}>
-              <Grid container spacing={1}>
-                <Grid item xs={3} md={3}>
-                  <AreaFilter childToArea={childToArea} />
+            <Box width={'100%'} sx={{padding:'3% 10%'}}>
+                <Grid container spacing={1}>
+                  <Grid item xs={3} md={3}>
+                    <AreaFilter childToArea={childToArea} />
+                  </Grid>
+                  <Grid item xs={3} md={3}>
+                    <LocationFilter childToLocation={childToLocation} />
+                  </Grid>
+                  <Grid item xs={3} md={3}>
+                  </Grid>
+                  <Grid item xs={3} md={3}>
+                    <Filter childToSelect={childToSelect}/>
+                  </Grid>
                 </Grid>
-                <Grid item xs={3} md={3}>
-                  <LocationFilter childToLocation={childToLocation} />
-                </Grid>
-                <Grid item xs={3} md={3}>
-                </Grid>
-                <Grid item xs={3} md={3}>
-                  <Filter childToSelect={childToSelect}/>
-                </Grid>
-              </Grid>
-              
             </Box>
             
 
@@ -161,7 +170,7 @@ const Listing = () =>{
                                                 </Grid>
                                                 :
                                                 <>
-                    {listings.map((item, index) =><Grid item xs={12} md={6} lg={4} key={index} >
+                    {listings.slice(0,number).map((item, index) =><Grid item xs={12} md={6} lg={4} key={index} >
                     <Link style={{ textDecoration: 'none' }} to={`/Product/${item._id}`}>
                     <MediaCard photo={item.titlePhoto}
                                                 rate={'₹ '+ item.rate} 
@@ -176,7 +185,16 @@ const Listing = () =>{
                } 
               </Grid>
             </Box>
+            <Box width={'100%'} sx={{padding:'5% 15%'}}>
+              <Grid container spacing={1}>
+              {listings.length>number ? 
+              <Button variant="contained" type='submit' onClick={handleLoadMore} sx={{backgroundColor:"black", margin:'1% 2%' }} >Show More</Button>
+              :
+              <Button disabled variant="contained" type='submit' onClick={handleLoadMore} sx={{backgroundColor:"black", margin:'1% 2%' }} >Show More</Button> }
                 
+                {number > 9 ? <Button variant="contained" type='submit' onClick={handleLoadLess} sx={{backgroundColor:"black", margin:'1% 2%' }} >Show Less</Button>: null}
+              </Grid>
+            </Box>
             </Grid>
             <BottomBar />
             </>
