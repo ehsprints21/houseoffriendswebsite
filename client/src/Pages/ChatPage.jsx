@@ -1,14 +1,14 @@
 import '../App.css';
 import Navbar from '../Components/CommonComponents/Navbar';
 import BottomBar from '../Components/CommonComponents/BottomBar';
-import Footer from '../Components/CommonComponents/Footer';
+import Divider from '@mui/material/Divider';
 import React, { useState, useEffect, useRef } from "react";
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import MediaCard from '../Components/Chats/MediaCard';
+import { MediaCard, ActiveMediaCard }from '../Components/Chats/MediaCard';
 import ChatCard from '../Components/Chats/ChatCard';
 import { userRequest } from "../Axios/requestMethods";
 import { useSelector } from 'react-redux';
@@ -27,7 +27,7 @@ const Listing = () =>{
   const messageEl = useRef(null);
 
   const childToParent = (childdata) => {
-    console.log(childdata)
+    //console.log(childdata)
     setChatId(childdata.convId);
     setChatProdName(childdata.prodName);
   }
@@ -37,6 +37,7 @@ const Listing = () =>{
   useEffect(()=>{
     const getConversations = async ()=>{
       const res = await userRequest.get(`/conversations/${loggedUser._id}`);
+      //console.log(res);
       setConversations(res.data);
     }
     getConversations()
@@ -83,9 +84,12 @@ const Listing = () =>{
                                   People
                 </Typography>
 
-                      {conversations.map((item, index) =><>
+                      {conversations.map((item, index) =>(item._id!==chatId)?<>
                         <MediaCard message={item} key={index} childToParent={childToParent}/>
-                      <hr />
+                      <Divider />
+                      </>:<>
+                        <ActiveMediaCard message={item} key={index} childToParent={childToParent}/>
+                      <Divider />
                       </>
                        )}
               </Box>
