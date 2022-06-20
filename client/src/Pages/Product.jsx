@@ -29,10 +29,12 @@ const Product = () =>{
   useEffect(()=>{
     const getListings = async ()=>{
       const res = await publicRequest.get(`/listing/showListing/${id}`);
-      
       setListing(res.data);
       setLocation(res.data.latLon);
       setPics(res.data.photos);
+      if(res.data.photos.length===0){
+        setPics(['https://res.cloudinary.com/dhhx4amh9/image/upload/v1654141765/vkdo18urwpimv6ibetv2.png'])
+      }
     }
     getListings()
   },[id]);

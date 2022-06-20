@@ -14,7 +14,7 @@ function MediaCard(props) {
             component="img"
             height='175'
             width='100%'
-            image={props.photo}
+            image={(props.photo)?props.photo : 'https://res.cloudinary.com/dhhx4amh9/image/upload/v1654141765/vkdo18urwpimv6ibetv2.png'}
             alt="Product Photo"
       />
           <CardContent sx={{minWidth:300, minHeight:50, maxHeight:100, padding:'0 2.5%'}}>
