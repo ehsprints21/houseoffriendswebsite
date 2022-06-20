@@ -1,13 +1,11 @@
 import '../App.css';
 import Navbar from '../Components/CommonComponents/Navbar';
 import BottomBar from '../Components/CommonComponents/BottomBar';
-import Footer from '../Components/CommonComponents/Footer';
 import Filter from '../Components/Listing/SelectFilter';
 import AreaFilter from '../Components/Listing/AreaFilter';
 import LocationFilter from '../Components/Listing/LocationFilter';
 import MediaCard from '../Components/Listing/ListingCard';
 import React, { useState,useEffect } from "react";
-import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -102,7 +100,7 @@ const Listing = () =>{
       }else{
         objLoc = await objLoc.filter(obj => obj.state === location);
         await setListings([...objLoc])
-        console.log(objLoc);
+        //console.log(objLoc);
       }
     }
     filteredLocation()
@@ -191,7 +189,6 @@ const Listing = () =>{
               <Button variant="contained" type='submit' onClick={handleLoadMore} sx={{backgroundColor:"black", margin:'1% 2%' }} >Show More</Button>
               :
               <Button disabled variant="contained" type='submit' onClick={handleLoadMore} sx={{backgroundColor:"black", margin:'1% 2%' }} >Show More</Button> }
-                
                 {number > 9 ? <Button variant="contained" type='submit' onClick={handleLoadLess} sx={{backgroundColor:"black", margin:'1% 2%' }} >Show Less</Button>: null}
               </Grid>
             </Box>

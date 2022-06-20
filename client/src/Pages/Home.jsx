@@ -10,9 +10,11 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () =>{
+    let navigate = useNavigate();
     return(
         <div>
             <Navbar />
@@ -41,7 +43,7 @@ const Home = () =>{
 
                                     
                             </Typography>
-                            <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'25%', height:'100%' }}>See How It works</Button>
+                            <Button variant="secondary" type='submit' onClick={() => {navigate("/aboutUs")}} sx={{backgroundColor:"#ffc13b", width:'25%', height:'100%' }}>See How It works</Button>
                         </Box>
                     </Grid>
                 </Grid>
@@ -111,7 +113,7 @@ const Home = () =>{
                                 <br />
                         </Typography>
                         <br />
-                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'50%', height:'100%' }}>Contact Us to Know More</Button>
+                        <Button variant="secondary" onClick={() => {navigate("/contact")}} type='submit' sx={{backgroundColor:"#ffc13b", width:'50%', height:'100%' }}>Contact Us to Know More</Button>
                     </Container>
                 </Grid>
                 <Grid item xs={12} md={12}>
@@ -133,11 +135,13 @@ const Home = () =>{
                         <Grid item xs={12} md={6} >
                                 < CardClickable Photo="./assets/gotPlot.png"
                                             Link1="Check Listing"
+                                            Link2="sessions"
                                             />
                         </Grid>
                         <Grid item xs={12} md={6} sx={{position:'relative', left:'20%', display: { xs: 'none', md: 'block' } }}>
                                 < CardClickable Photo="./assets/needHome.png"
                                             Link1="Check Options"
+                                            Link2="sessions"
                                             />
                         </Grid>
                     </Grid>
@@ -188,7 +192,7 @@ const Home = () =>{
                                 <br />
                         </Typography>
                         <br /><br />
-                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b" }}>Know More</Button>
+                        <Button variant="secondary" type='submit' onClick={() => {navigate("/aboutUs")}} sx={{backgroundColor:"#ffc13b" }}>Know More</Button>
                         <br/><br/><br/>
                 </Grid>
             </Grid>

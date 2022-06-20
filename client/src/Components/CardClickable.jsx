@@ -5,8 +5,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from "react-router-dom";
 
 export default function MediaCard(props) {
+  let navigate = useNavigate();
   return (
     <>
       <Card variant='elevation' elevation={4} sx={{ padding:'0', display: { xs: 'block', md: 'none' }, borderRadius:5 }}>
@@ -43,7 +45,7 @@ export default function MediaCard(props) {
         </Typography>
       </CardContent>
       <CardActions sx={{padding:'0 20%'}}>
-        <Button variant="secondary" fullWidth sx={{backgroundColor:'#ffc13b'}}>{props.Link1}</Button>
+        <Button variant="secondary" onClick={() => {navigate("/"+props.Link2) }} fullWidth sx={{backgroundColor:'#ffc13b'}}>{props.Link1}</Button>
         <br/><br/><br/>
       </CardActions>
     </Card>
