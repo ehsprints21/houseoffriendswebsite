@@ -305,7 +305,9 @@ const ListingCreation =()=> {
                     
                     <MapRender childToParent={childToParent}/>
                     <Grid item xs={12} md={12}>
-                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'30%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleClick} >Submit</Button>
+                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'30%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={handleClick} >
+                            Submit
+                        </Button>
                     </Grid>  
                 </Grid>
             </form>
