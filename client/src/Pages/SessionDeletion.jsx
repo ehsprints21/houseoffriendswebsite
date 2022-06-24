@@ -13,7 +13,7 @@ import CardMedia from '@mui/material/CardMedia';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import {useSelector} from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { userRequest } from "../Axios/requestMethods";
+import { userRequest, publicRequest } from "../Axios/requestMethods";
 
 function MediaCard(props) {
     
@@ -62,11 +62,19 @@ const SessionDeletion = () =>{
   
   useEffect(()=>{
     const getListings = async ()=>{
-      const res = await userRequest.get(`/listing/showMyListings/${loggedUser._id}`);
-      setListings(res.data);
+      
+      if(loggedUser.isAdmin){
+        const resAdmin = await userRequest.get("/listing/showListingsAll");
+        console.log(resAdmin.data);
+        setListings(resAdmin.data);
+      }else{
+        const res = await userRequest.get(`/listing/showMyListings/${loggedUser._id}`);
+        setListings(res.data);
+      }
+      
     }
     getListings()
-  },[]);
+  },[loggedUser]);
 
     return(
             <Grid container spacing={1} alignItems="center">

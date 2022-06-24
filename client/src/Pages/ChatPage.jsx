@@ -26,6 +26,7 @@ const Listing = () =>{
   const textInput = useRef(null);
   const messageEl = useRef(null);
 
+  
   const childToParent = (childdata) => {
     //console.log(childdata)
     setChatId(childdata.convId);
@@ -36,9 +37,8 @@ const Listing = () =>{
 
   useEffect(()=>{
     const getConversations = async ()=>{
-      const res = await userRequest.get(`/conversations/${loggedUser._id}`);
-      //console.log(res);
-      setConversations(res.data);
+        const res = await userRequest.get(`/conversations/${loggedUser._id}`);
+        setConversations(res.data);
     }
     getConversations()
   },[loggedUser._id]);

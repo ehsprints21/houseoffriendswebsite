@@ -18,14 +18,13 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Select from '@mui/material/Select';
+import { styled } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 import {useSelector} from 'react-redux';
 
 
 const ListingCreation =()=> {
-    
-    const [cloud,setCloud] = useState("");
-    const [preset,setPreset] = useState("");
+
     const [rate,setRate] = useState("");
     const [time,setTime] = useState("");
     const [amount,setAmount] = useState("");
@@ -36,6 +35,7 @@ const ListingCreation =()=> {
     const [title,setTitle] = useState("");
     const [description,setDescription] = useState("");
     const [propertyType,setPropertyType] = useState("");
+    const [pic, setPic] = useState();
     const [poster,setPoster] = useState("");
     const [posterName,setPosterName] = useState("");
     const [photos,setPhotos] = useState([]);
@@ -48,10 +48,6 @@ const ListingCreation =()=> {
     
     useEffect( () => {
         const handler= async ()=>{
-          const Cloud= await publicRequest.get('/auth/cloud');
-          const Preset= await publicRequest.get('/auth/preset');
-          setCloud(Cloud.data);
-          setPreset(Preset.data);
           if (loggedUser) {
             setPoster(loggedUser._id);
             setPosterName(loggedUser.username);
@@ -74,34 +70,61 @@ const ListingCreation =()=> {
       f();
     }, [pinCode])
 
-    
-      var myWidget = window.cloudinary.createUploadWidget(
-        {
-          cloudName: cloud,
-          uploadPreset: preset,
-          sources: [ 'local', 'url', 'camera', 'image_search'],
-          clientAllowedFormats: ['jpg', 'png', 'jpeg'],
-          maxFileSize: 1000000,
-          cropping: true,
-          showSkipCropButton: false,
-          croppingAspectRatio: 1.67,
-          gravity:'custom',
-        },async (err,result)=>{
-            if(result.event==='success'){
-                try{
-                    setPhotos(oldArray => [...oldArray, result.info.secure_url])
-                }catch(err){
-                    console.log(err);
-                } 
-                //   console.log(result);
-            }
+    useEffect(()=>{
+        const imgUploadAws=async ()=>{
+          console.log(pic);
+        const res=await postImage({image: pic})
+        if(res.imagePath){
+          setPhotos(oldArray => [...oldArray, res.imagePath.Location])
         }
-      );
+        
+        
+        console.log(res);
+      }
+      imgUploadAws()
+    }, [pic])
 
-        const showWidget=(e)=>{
-            e.preventDefault();
-            myWidget.open();
-        }
+    async function postImage({image}) {
+      const formData = new FormData();
+      formData.append("image", image)
+    
+      const result = await userRequest.post("/listing/sendImage", formData, { headers: {'Content-Type': 'multipart/form-data'}})
+      return result.data
+    }
+
+    const Input = styled('input')({
+        display: 'none',
+      });
+      
+      // the below code produces cloudinary upload widget
+
+      // var myWidget = window.cloudinary.createUploadWidget(
+      //   {
+      //     cloudName: cloud,
+      //     uploadPreset: preset,
+      //     sources: [ 'local', 'url', 'camera', 'image_search'],
+      //     clientAllowedFormats: ['jpg', 'png', 'jpeg'],
+      //     maxFileSize: 1000000,
+      //     cropping: true,
+      //     showSkipCropButton: false,
+      //     croppingAspectRatio: 1.67,
+      //     gravity:'custom',
+      //   },async (err,result)=>{
+      //       if(result.event==='success'){
+      //           try{
+      //               setPhotos(oldArray => [...oldArray, result.info.secure_url])
+      //           }catch(err){
+      //               console.log(err);
+      //           } 
+      //           //   console.log(result);
+      //       }
+      //   }
+      // );
+
+      //   const showWidget=(e)=>{
+      //       e.preventDefault();
+      //       myWidget.open();
+      //   }
 
 
     const handleChange = (property) => {
@@ -289,8 +312,15 @@ const ListingCreation =()=> {
                     />
                     </Grid>
                     <Grid item xs={12} md={12}>
-                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'30%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={showWidget}>Upload Photos</Button>
-                        
+
+                        {/* Buttun to activate cloudinary.
+                        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'30%', height:'100%', borderRadius:5, textTransform: 'none' }} onClick={showWidget}>Upload Photos</Button> */}
+                        <label htmlFor="contained-button-file">
+        <Input accept="image/*" id="contained-button-file" type="file" onChange={(e)=>setPic(e.target.files[0])} />
+        <Button variant="secondary" type='submit' sx={{backgroundColor:"#ffc13b", width:'30%', height:'100%', borderRadius:5, textTransform: 'none' }} component="span">
+          Upload Images
+        </Button>
+      </label>
                     </Grid>
                     <Grid item xs={12} md={12}>
                     </Grid>

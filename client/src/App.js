@@ -5,6 +5,7 @@ import Sessions from './Pages/Sessions';
 import Product from './Pages/Product';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
+import Forgot from './Pages/ForgetPassword';
 import Register from './Pages/Register';
 import SessionCreation from './Pages/SessionCreating';
 import SessionDeletion from './Pages/SessionDeletion';
@@ -48,6 +49,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Product/:id" element={<Product />} />
         <Route path="/sessions" element={<Sessions />} />
+        <Route path="/forgetPassword" element={<Forgot />} />
         <Route path="/construction" element={<Construction />} />
         <Route path="/sessionsDelete" element={<SessionDeletion />} />
         <Route path="/offerChats" element={<ChatPage />} />

@@ -2,7 +2,24 @@ const Listings = require("../models/Listings");
 const express = require('express');
 const router = express.Router();
 const https = require('node:https');
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + path.extname(file.originalname)) //Appending extension
+    }
+  })
+  var upload = multer({ storage: storage, dest: 'uploads/' });
+var path = require('path')
+const fs = require('fs')
+const util = require('util')
+const unlinkFile = util.promisify(fs.unlink)
+const { uploadFile } = require('./s3')
 const {verifyToken, verifyTokenAndAuthorization, verifyAdmin} = require("../middlewares/verifyToken");
+
+
 //----------CREATE------------
 
 router.post('/createListing', async (req,res)=>{
@@ -17,7 +34,7 @@ router.post('/usePincode', async (req, resp)=>{
     const pinCode=req.body.pinCode;
     //console.log(pinCode);
     https.get(`https://api.postalpincode.in/pincode/${pinCode}`, (res) => {
-    console.log('statusCode:', res.statusCode);
+    //console.log('statusCode:', res.statusCode);
     
         res.on('data', async (d) => {
             if(JSON.parse(d.toString('utf8'))[0].Status==='Success'){
@@ -37,11 +54,31 @@ router.post('/usePincode', async (req, resp)=>{
     
 })
 
+// -------------------------Sending Imageto aws bucket-----------
+
+router.post('/sendImage', upload.single('image'), async (req, resp)=>{
+
+    
+    const file = req.file
+    //console.log(file)
+    const result = await uploadFile(file)
+    if(file){
+        await unlinkFile(file.path)
+    }
+    //console.log(result)
+    resp.json({imagePath: result})
+})
 
 //   //----------------Find All Listings---------------
 
 router.get("/showMyListings/:userId", verifyTokenAndAuthorization, async (req, res) => {
     const sessions = await Listings.find({poster:req.params.userId}).sort( { createdAt: 1 } );
+    res.json(sessions);
+});
+
+router.get("/showMyListings/all", verifyTokenAndAuthorization, async (req, res) => {
+    console.log("hi there");
+    const sessions = await Listings.find().sort({"createdAt": -1}).exec()
     res.json(sessions);
 });
 

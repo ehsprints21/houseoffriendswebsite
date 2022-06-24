@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Redux/actions";
+import { publicRequest } from '../Axios/requestMethods';
 
 const Login = () => {
 
@@ -22,7 +23,6 @@ const Login = () => {
     const [err, setErr] = useState("");
     const [val, setVal] = useState(false);
     const dispatch = useDispatch();
-    const { isFetching, error }= useSelector((state)=> state.user);
     const navigate = useNavigate();
 
     const loggedInUser=useSelector((state)=>state.user.currentUser);
@@ -42,27 +42,25 @@ const Login = () => {
         handler();
          }, [loggedInUser, val]);
 
-    const handleLogin=async (e)=>{
+    const handleForget=async (e)=>{
         e.preventDefault();
-  // send the username and password to the server
+        const res = await publicRequest.post(`/email/resetPassword`, {email: email});
+        console.log(res);
+        if(res.data==='No Such User Exists on System'){
+            setErr(res.data);
+        }else{
+            setErr('Password sent.');
+        }
+        
         setVal(true);
         try{
-           const x= await login(dispatch, { email, password });
+           
            
         }catch(er){
-            setErr("Check Email/ Password");
+            setErr("Check Email");
         }
     }
 
-    const handleForget=async (e)=>{
-        e.preventDefault();
-        navigate(`/forgetPassword`);
-    }
-
-    const handleRegister=async (e)=>{
-        e.preventDefault();
-        navigate(`/register`);
-    }
 
   return (
       <div>
@@ -78,13 +76,13 @@ const Login = () => {
                         component="span"
                         sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
                     >
-                        <h2>Login</h2>
+                        <h2>Forget Password</h2>
                     </Typography>
                     <Typography
                         component="span"
                         sx={{ mr: 2, display: { xs: 'block', md: 'block' }, fontSize:'15px', color:'black', textAlign:'center' }}
                     >
-                        <p>Come join the community.</p>
+                        <p>Please Enter your password, we will email your new credentials.</p>
                     </Typography>
         
                     </Grid>
@@ -98,48 +96,17 @@ const Login = () => {
                             </Typography>
                         <TextField placeholder="Your Email" className="inputRounded" type="email" fullWidth sx={{backgroundColor:"white", borderRadius:'200px'}} onChange={(e) => setEmail(e.target.value)} />
                     </Grid>
-                    <Grid item xs={12} md={12}>
-                            <Typography
-                            component="span"
-                            variant='body1'
-                            sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'left' }}
-                        >
-                            Password
-                            </Typography>
-                        <TextField id="outlined-basic" className="inputRounded" placeholder="Password" type="password" variant="outlined" fullWidth sx={{backgroundColor:"white" }} onChange={(e) => setPassword(e.target.value)} />
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                        <Button variant="secondary" autoCapitalize="none" type='submit' sx={{backgroundColor:"#ffc13b", height:'100%', width:'30%', borderRadius:5, textTransform: 'none' }} onClick={handleLogin}>
-                            <Typography
-                            component="span"
-                            sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
-                        >
-                            Login
-                            </Typography>
-                        </Button>
-                    </Grid>
-                    
                     
                     <Grid item xs={12} md={12}>
-                        <Button variant="Secondary" type='submit' sx={{backgroundColor:"#ffc13b", height:'100%', width:'30%', borderRadius:5, textTransform: 'none' }} onClick={handleRegister}>
-                            <Typography
-                                component="span"
-                                sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
-                            >
-                            Register Instead
-                            </Typography>
-                        </Button>
-                    </Grid>
-                    {/* <Grid item xs={12} md={12}>
                         <Button variant="secondary" autoCapitalize="none" type='submit' sx={{backgroundColor:"#ffc13b", height:'100%', width:'30%', borderRadius:5, textTransform: 'none' }} onClick={handleForget}>
                             <Typography
                             component="span"
                             sx={{ mr: 2, display: { xs: 'block', md: 'block' }, color:'black', textAlign:'center' }}
                         >
-                            Forgot Password
+                            Request Password
                             </Typography>
                         </Button>
-                    </Grid> */}
+                    </Grid>
                     <Grid item xs={12} md={12}>
                         <Typography
                             component="span"
@@ -148,7 +115,6 @@ const Login = () => {
                             <p>{err}</p>
                         </Typography>
                     </Grid>
-                    
                 </Grid>
             </form>
           </Toolbar>

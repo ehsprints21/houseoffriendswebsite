@@ -69,13 +69,6 @@ router.post("/logout", verifyTokenAndAuthorization, async (req,res)=>{
 })
 module.exports=router;
 //--------------------------------Sending API Keys--------------
-router.get("/cloud", async (req, res)=>{
-    res.send(process.env.CLOUD);
-})
-
-router.get("/preset", async (req, res)=>{
-    res.send(process.env.PRESET);
-})
 
 router.get("/mapKey", async (req, res)=>{
     res.send(process.env.MAPS);
