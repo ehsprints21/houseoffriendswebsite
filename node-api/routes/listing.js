@@ -76,11 +76,6 @@ router.get("/showMyListings/:userId", verifyTokenAndAuthorization, async (req, r
     res.json(sessions);
 });
 
-router.get("/showMyListings/all", verifyTokenAndAuthorization, async (req, res) => {
-    console.log("hi there");
-    const sessions = await Listings.find().sort({"createdAt": -1}).exec()
-    res.json(sessions);
-});
 
 router.get("/showListing/:id", async (req, res) => {
     const session = await Listings.findById(req.params.id);
@@ -101,7 +96,7 @@ router.get("/showListingsAll", async (req, res) => {
 
 
 
-// //----------Update------------
+// //----------Update (Non functional)------------
 
 // router.put("/:id", verifyTokenAndAuthorization, async (req, res) => { 
 //       const updatedCart = await Cart.findByIdAndUpdate(

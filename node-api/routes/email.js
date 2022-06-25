@@ -4,6 +4,8 @@ const nodemailer = require("nodemailer");
 const express = require('express');
 const router = express.Router();
 const {verifyToken, verifyTokenAndAuthorization, verifyAdmin} = require("../middlewares/verifyToken");
+
+//----------------------------- Whole module is NON - Functional as of current-------------
 //----------CREATE------------
 
 router.post('/createEmail', async (req,res)=>{

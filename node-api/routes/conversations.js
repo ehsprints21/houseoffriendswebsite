@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Conversation = require("../models/Conversation");
 const User = require("../models/User");
 
-//new conv
+//--------------------------------------Create new conv
 
 router.post("/", async (req, res) => {
   const con = await Conversation.findOne({

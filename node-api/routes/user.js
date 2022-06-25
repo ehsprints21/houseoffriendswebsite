@@ -4,7 +4,7 @@ const User = require ('../models/User');
 const CryptoJS = require("crypto-js");
 const {verifyToken, verifyTokenAndAuthorization, verifyAdmin} = require("../middlewares/verifyToken");
 
-//---------------------------------------REGISTERING NEW USER-----------------------------
+//---------------------------------------Updating username-----------------------------
 
 router.put("/updateUserName/:userId",verifyTokenAndAuthorization, async (req,res)=>{
 
@@ -26,6 +26,8 @@ router.put("/updateUserName/:userId",verifyTokenAndAuthorization, async (req,res
     }}
 })
 
+//---------------------------------------Updating UserPassword-----------------------------
+
 router.put("/updateUserInfos/:userId",verifyTokenAndAuthorization, async (req,res)=>{
 
     const result = await User.findOne({email:req.body.email})
@@ -43,6 +45,8 @@ router.put("/updateUserInfos/:userId",verifyTokenAndAuthorization, async (req,re
         res.status(101).send("error in updating.");
     }}
 })
+
+//---------------------------------------NON - functional-----------------------------
 
 router.put("/updateDocuments/:userId",verifyTokenAndAuthorization, async (req,res)=>{
     try{

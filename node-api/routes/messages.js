@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Message = require("../models/Message");
 
-//add
+//-----------------------------create a new message ------------------------
 
 router.post("/", async (req, res) => {
   const newMessage = new Message(req.body);
@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//get
+//------------------------------get message based on passed conversation id---------------------
 
 router.get("/:conversationId", async (req, res) => {
   try {
