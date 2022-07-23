@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prakhar",
+  "license": "ISC",
+  "dependencies": {
+    "aws-s3": "^2.0.5",
+    "aws-sdk": "^2.1161.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.0",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.7.5",
+    "nodemon": "^2.0.15"
+  }
+}
