@@ -122,4 +122,34 @@ router.delete("/:id",(req, res)=>{
   });
   })
 
+router.get('/get_state', async (req,res)=>{
+    try {
+        let state = req.query.state;
+        console.log(state);
+        let data = await Listings.find({state:state});
+        res.json({
+            data:data
+        })
+    } catch (error) {
+        res.json({
+            error:error.message
+        })
+    }
+})
+
+router.get('/get_city', async (req,res)=>{
+    try {
+        let city = req.query.city;
+        console.log(city);
+        let data = await Listings.find({city:city});
+        res.json({
+            data:data
+        })
+    } catch (error) {
+        res.json({
+            error:error.message
+        })
+    }
+})
+
 module.exports=router;
