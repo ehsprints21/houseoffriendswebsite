@@ -19,6 +19,8 @@ const unlinkFile = util.promisify(fs.unlink)
 const { uploadFile } = require('./s3')
 const {verifyToken, verifyTokenAndAuthorization, verifyAdmin} = require("../middlewares/verifyToken");
 
+const storageUrl = require("./s3");
+
 
 //----------CREATE------------
 
@@ -56,17 +58,38 @@ router.post('/usePincode', async (req, resp)=>{
 
 // -------------------------Sending Imageto aws bucket-----------
 
-router.post('/sendImage', upload.single('image'), async (req, resp)=>{
+// router.post('/sendImage', upload.single('image'), async (req, resp)=>{
 
     
-    const file = req.file
-    //console.log(file)
-    const result = await uploadFile(file)
-    if(file){
-        await unlinkFile(file.path)
+//     const file = req.file
+//     //console.log(file)
+//     const result = await uploadFile(file)
+//     if(file){
+//         await unlinkFile(file.path)
+//     }
+//     //console.log(result)
+//     resp.json({imagePath: result})
+// })
+
+router.post('/sendImage', storageUrl.single('image'), async (req, res)=>{
+
+    
+    try {
+        let responseObj = {
+            fileSavedUrl: req.file.location,
+            destination: req.file.location,
+            fileName: req.file.originalname
+        }
+        res.json({
+            data:responseObj
+        })
+
+    } catch (err) {
+        res.json({
+            error:err.message
+        })
+
     }
-    //console.log(result)
-    resp.json({imagePath: result})
 })
 
 //   //----------------Find All Listings---------------
