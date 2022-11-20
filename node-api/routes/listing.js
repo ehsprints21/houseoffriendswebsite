@@ -145,14 +145,59 @@ router.delete("/:id",(req, res)=>{
   });
   })
 
-router.get('/get_state', async (req,res)=>{
+// router.get('/get_state', async (req,res)=>{
+//     try {
+//         let state = req.query.state;
+//         console.log(state);
+//         let data = await Listings.find({state:state});
+//         res.json({
+//             data:data
+//         })
+//     } catch (error) {
+//         res.json({
+//             error:error.message
+//         })
+//     }
+// })
+
+// router.get('/get_city', async (req,res)=>{
+//     try {
+//         let city = req.query.city;
+//         console.log(city);
+//         let data = await Listings.find({city:city});
+//         res.json({
+//             data:data
+//         })
+//     } catch (error) {
+//         res.json({
+//             error:error.message
+//         })
+//     }
+// })
+router.get('/get_state_city', async (req,res)=>{
     try {
         let state = req.query.state;
+        let city = req.query.city;
+        console.log(city);
         console.log(state);
-        let data = await Listings.find({state:state});
-        res.json({
-            data:data
-        })
+        let data=[];
+        let stateData = await Listings.find({state:state});
+        if(state.length >0 && city.length >0){
+            for(let i =0;i<stateData.length;i++){
+                if(stateData[i].city ===city){
+                    data.push(stateData[i]);
+                }
+            }
+            res.json({
+                data:data
+            })
+            
+        }
+        else{
+            res.json({
+                data:stateData
+            })
+        }
     } catch (error) {
         res.json({
             error:error.message
@@ -160,19 +205,5 @@ router.get('/get_state', async (req,res)=>{
     }
 })
 
-router.get('/get_city', async (req,res)=>{
-    try {
-        let city = req.query.city;
-        console.log(city);
-        let data = await Listings.find({city:city});
-        res.json({
-            data:data
-        })
-    } catch (error) {
-        res.json({
-            error:error.message
-        })
-    }
-})
 
 module.exports=router;
