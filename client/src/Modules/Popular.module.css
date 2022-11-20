@@ -1,0 +1,41 @@
+.popular {
+  width: 20rem;
+  height: 14rem;
+  background: #e8e8e8;
+  border-radius: 30px;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 3.5rem;
+}
+.popular img {
+  position: relative;
+  top: -2.5rem;
+}
+.city {
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #000000;
+  position: relative;
+  top: -4rem;
+}
+.totalcity {
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #515151;
+  top: -6rem;
+  position: relative;
+}

@@ -1,0 +1,193 @@
+.image {
+  width: 30rem;
+  height: 20rem;
+}
+.gotplot {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  z-index: 3;
+  margin-top: 3rem;
+}
+.got {
+  width: 20rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+.gotplotsbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 100%;
+  margin-top: 3rem;
+}
+.gotplotsbutton button {
+  background: #f9c460;
+  border-radius: 30px;
+  width: 20rem;
+  height: 5rem;
+  margin-left: 6rem;
+  margin-right: 3rem;
+  border: none;
+
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 31px;
+  text-align: center;
+  margin-top: 4rem;
+
+  color: #333333;
+}
+.gotplotsbutton button:hover {
+  width: 20.02rem;
+  height: 5.01rem;
+  color: white;
+}
+.faq {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.iot {
+  margin-top: 3rem;
+  width: 100%;
+  height: 25rem;
+  margin-left: 0;
+  display: flex;
+  flex-direction: row;
+}
+.iot div {
+  margin: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.iot div img {
+  width: 94%;
+  height: 100%;
+  border-radius: 25px;
+}
+.i {
+  border: 1px solid #f9c460;
+  border-radius: 25px;
+}
+.smart {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 43px;
+  text-align: center;
+  margin-top: 7rem;
+
+  color: #000000;
+  margin-bottom: 2rem;
+}
+.sturdy {
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  flex-direction: row;
+}
+.sturdyimg {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.sturdyimg img {
+  width: 90%;
+}
+.sturdycontent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+}
+.mainproduct {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 910px) {
+  .gotplotsbutton {
+    display: flex;
+    flex-direction: column;
+  }
+  .gotplotsbutton button {
+    width: 15rem;
+    height: 4rem;
+    margin-left: 0;
+    margin-right: 0;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 31px;
+    text-align: center;
+    margin-top: 4rem;
+
+    color: #333333;
+  }
+  .iot {
+    margin-top: 3rem;
+    width: 100%;
+    height: 50rem;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .iot div {
+    margin: 0;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1039px) {
+  .image {
+    width: 20rem;
+    height: 10rem;
+  }
+}
+@media screen and (max-width: 280px) {
+  .image {
+    width: 10rem;
+    height: 5rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .gotplot {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    z-index: 3;
+    margin-top: 3rem;
+  }
+  .got {
+    width: 15rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+  }
+}

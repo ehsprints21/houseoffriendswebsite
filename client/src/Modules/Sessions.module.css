@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 3rem;
+  margin-left: 5rem;
+}
+.sessionnav {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffa75c;
+  align-items: center;
+  height: 5rem;
+}
+.hamburger {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+  margin-left: 1rem;
+}
+.icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+  margin-left: 2.5rem;
+}
+.search {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

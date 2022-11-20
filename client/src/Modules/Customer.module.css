@@ -1,0 +1,52 @@
+.customer {
+  width: 17rem;
+  height: 20rem;
+  margin-left: 4rem;
+  margin-right: 3rem;
+  margin-top: 5rem;
+
+  background: #e8e8e8;
+  border-radius: 30px;
+}
+.customer img {
+  position: relative;
+  top: -3rem;
+  width: 10rem;
+  height: 10rem;
+}
+.custom {
+  position: relative;
+  top: -3rem;
+}
+.name {
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  margin-bottom: 0;
+  text-align: center;
+  margin-top: 0;
+
+  color: #000000;
+}
+.content {
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  margin-top: 2rem;
+  color: #515151;
+}
+.date {
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+
+  color: #6f6f6f;
+}

@@ -1,0 +1,45 @@
+.searchform {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 80%;
+  height: 3.5rem;
+  border-radius: 12px;
+}
+.searchicon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin-left: 1.3rem;
+  width: 5%;
+}
+.searchform input[type="text"] {
+  border: none;
+  outline: none;
+  width: 70%;
+  font-size: 1.5rem;
+}
+.searchform input[type="text"]::-webkit-input-placeholder {
+  font-size: 1rem;
+}
+.searchform select {
+  align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+  outline: #ffa75c;
+  background: #ffa75c;
+  width: 25%;
+  border-radius: 12px;
+  border: none;
+  margin-right: 0.1rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+}
+.searchform option {
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+}
