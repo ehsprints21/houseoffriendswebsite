@@ -173,7 +173,7 @@ const Home = () => {
             sx={{ display: "block", alignContent: "center", padding: "0% 2%" }}
           >
             <img
-              src="/assets/image 2 (2).png"
+              src="/assets/image 6.png"
               alt="Representation of product"
               className={classes.image}
             />
@@ -330,12 +330,19 @@ const Home = () => {
       <p className={classes.smart}>Self sufficient and smart</p>
       <div className={classes.iot}>
         <div>
-          <img src="/assets/image 4.png" className={classes.i} />
+          <img src="/assets/iott.png" className={classes.i} />
         </div>
         <div>
           <img src="/assets/1.jpg" />
         </div>
       </div>
+      <p className={classes.iotcontent}>
+        The units are solar power enabled that can run basic services in offgrid
+        locations. IOT and smart sensors are used for real time Monitoring and
+        Automation. The Superstructure itself is "Smart" that detects and
+        corrects any change in levels due to base ground condition. This means a
+        flexible offgrid occupiable space that is highly reliable and efficient
+      </p>
       <p className={classes.smart}>Sturdy and dependable</p>
       <div className={classes.sturdy}>
         <div className={classes.sturdyimg}>

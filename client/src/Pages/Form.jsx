@@ -1,33 +1,33 @@
 import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 import classes from "../Modules/Form.module.css";
 import Navbar from "../Components/CommonComponents/Navbar";
 const Form = () => {
-  const form = useRef();
-  const sendEmail = (e) => {
-    e.preventDefault();
+  // const form = useRef();
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_6nc6hho",
-        "template_egwovsj",
-        form.current,
-        "xPyN3DMC7dSZ5RRxC"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
+  //   emailjs
+  //     .sendForm(
+  //       "service_6nc6hho",
+  //       "template_egwovsj",
+  //       form.current,
+  //       "xPyN3DMC7dSZ5RRxC"
+  //     )
+  //     .then(
+  //       (result) => {
+  //         console.log(result.text);
+  //       },
+  //       (error) => {
+  //         console.log(error.text);
+  //       }
+  //     );
+  // };
   return (
     <React.Fragment>
       <Navbar />
       <div className={classes.container}>
-        <form className={classes.formcontainer} onSubmit={sendEmail} ref={form}>
+        <form className={classes.formcontainer}>
           <p>Kindly fill the Form</p>
           <input type="text" placeholder="First Name:" />
           <input type="text" placeholder="Last Name:" />
