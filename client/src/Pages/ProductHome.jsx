@@ -60,9 +60,11 @@ const ProductHome = () => {
           <div className={classes.mainright}>
             <div>
               <img src="/assets/Vector.png" />
+              <p>Saved</p>
             </div>
             <div>
               <img src="/assets/Vector (1).png" />
+              <p>User</p>
             </div>
           </div>
         </div>

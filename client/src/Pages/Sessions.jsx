@@ -152,9 +152,14 @@ const Listing = () => {
           <img src="/assets/Vector (1).png" />
         </div>
       </div>
-      <div className={classes.filters}></div>
+      <div className={classes.filters}>
+        <div className={classes.allfilter}>Property Type</div>
+        <div className={classes.allfilter}>Price Range</div>
+        <div className={classes.allfilter}>Listed By</div>
+        <div className={classes.allfilter}>Filter</div>
+      </div>
 
-      <Grid container spacing={1} alignItems="center">
+      <Grid>
         {/* <Grid item xs={12} md={12}>
                         
                         <Typography
@@ -181,16 +186,14 @@ const Listing = () => {
         </Box> */}
         <div className={classes.container}>
           {listings.length === 0 ? (
-            <div>
-              <MediaCard
-                photo={
-                  "https://res.cloudinary.com/dhhx4amh9/image/upload/v1654141765/vkdo18urwpimv6ibetv2.png"
-                }
-                rate={"listings "}
-                title={"coming soon"}
-                city={""}
-              />
-            </div>
+            <MediaCard
+              photo={
+                "https://res.cloudinary.com/dhhx4amh9/image/upload/v1654141765/vkdo18urwpimv6ibetv2.png"
+              }
+              rate={"listings "}
+              title={"coming soon"}
+              city={""}
+            />
           ) : (
             <>
               {listings.slice(0, number).map((item, index) => (
@@ -249,8 +252,8 @@ const Listing = () => {
             )}
           </Grid>
         </Box> */}
-        <Box width={"100%"} sx={{ padding: "5% 15%" }}>
-          <Grid container spacing={1}>
+        <Box width={"30%"} sx={{ padding: "5% 15%" }}>
+          <Grid>
             {listings.length > number ? (
               <Button
                 variant="contained"

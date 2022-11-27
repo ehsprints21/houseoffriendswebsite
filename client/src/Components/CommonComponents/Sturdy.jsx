@@ -3,7 +3,7 @@ import classes from "../../Modules/Sturdy.module.css";
 const Sturdy = (props) => {
   return (
     <div className={classes.sturdypara}>
-      <div>{props.num}</div>
+      <span>{props.num}</span>
       <p>{props.para}</p>
     </div>
   );

@@ -27,6 +27,7 @@
 .answer button {
   border: none;
   color: #ffa75c;
+  border-radius: 30px;
 }
 .answer {
   display: flex;
@@ -69,5 +70,44 @@
 @media screen and (max-width: 900px) {
   .faq {
     min-width: 25rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .faq {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #f2f2f2;
+    border-radius: 30px;
+    min-width: 6rem;
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .question {
+    font-family: "Verdana";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 39px;
+    margin-left: 1rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+  }
+  .answer {
+    display: flex;
+    margin: 0;
+    padding: 0%;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #f2f2f2;
+    border-radius: 30px;
+    min-width: 10rem;
+    height: 10rem;
   }
 }

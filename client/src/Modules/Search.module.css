@@ -9,11 +9,11 @@
 .searchicon {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: white;
-  margin-left: 1.3rem;
-  width: 5%;
+  border-radius: 12px;
+  width: 3rem;
 }
 .searchform input[type="text"] {
   border: none;
@@ -42,4 +42,19 @@
   background-color: white;
   color: black;
   font-size: 1rem;
+}
+@media screen and (max-width: 900px) {
+  .searchform select {
+    font-size: 0.8rem;
+    width: 25%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .searchform {
+    width: 15rem;
+  }
+  .searchform select {
+    font-size: 0.6rem;
+    width: 25%;
+  }
 }

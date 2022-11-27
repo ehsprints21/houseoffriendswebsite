@@ -1,3 +1,12 @@
+.mainvideo {
+  width: 100%;
+  height: 40rem;
+}
+.mainvideo video {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
 .image {
   width: 30rem;
   height: 20rem;
@@ -24,7 +33,6 @@
   align-items: center;
   align-self: center;
   width: 100%;
-  margin-top: 3rem;
 }
 .gotplotsbutton button {
   background: #f9c460;
@@ -38,7 +46,7 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 31px;
   text-align: center;
   margin-top: 4rem;
@@ -49,6 +57,30 @@
   width: 20.02rem;
   height: 5.01rem;
   color: white;
+}
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.frame div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: -3rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #f9c460;
+}
+.frame img {
+  width: 4rem;
+  height: 4.3rem;
+  margin-top: 0.2rem;
 }
 .faq {
   display: flex;
@@ -94,11 +126,15 @@
   color: #000000;
   margin-bottom: 2rem;
 }
+.howitworks {
+  background: rgba(249, 196, 96, 0.09);
+}
 .sturdy {
   width: 100%;
-  height: 30rem;
+  height: 35rem;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .sturdyimg {
   width: 55%;
@@ -109,7 +145,8 @@
   align-items: center;
 }
 .sturdyimg img {
-  width: 90%;
+  width: 92%;
+  height: 80%;
 }
 .iotcontent {
   margin-top: 2rem;
@@ -174,6 +211,25 @@
     justify-content: center;
     align-items: center;
   }
+  .iot img {
+    width: 80%;
+    height: 100%;
+  }
+  .sturdy {
+    display: flex;
+    flex-direction: column;
+    height: 50rem;
+  }
+  .sturdyimg {
+    width: 100%;
+    height: 50%;
+  }
+  .sturdycontent {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+  }
 }
 @media screen and (max-width: 1039px) {
   .image {
@@ -201,5 +257,39 @@
     margin-left: 3rem;
     margin-right: 3rem;
     margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .mainvideo {
+    width: 100%;
+    height: 50%;
+  }
+  .mainvideo video {
+    width: 100%;
+    height: 100%;
+  }
+  .mainproduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .frame {
+    width: 3rem;
+    height: 3rem;
+  }
+  .gotplotsbutton button {
+    width: 15rem;
+    height: 4rem;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 4rem;
+
+    color: #333333;
   }
 }

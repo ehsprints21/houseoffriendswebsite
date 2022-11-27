@@ -66,12 +66,20 @@
   height: 3rem;
   background-color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
   border-radius: 7px;
   margin-left: 2.5rem;
+}
+.mainright img {
+  position: absolute;
+}
+.mainright p {
+  font-size: 8px;
+  position: absolute;
+  color: #ffa75c;
+  margin-top: 2.4rem;
 }
 .plotscollection {
   width: 100%;
@@ -194,5 +202,63 @@
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
+  }
+}
+@media screen and (max-width: 570px) {
+  .plotscollection {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: row;
+    overflow-y: hidden;
+  }
+  .blogbutton button {
+    width: 12rem;
+    height: 3rem;
+    margin-top: 2rem;
+  }
+  .maincenter {
+    font-size: 25px;
+    font-weight: 550;
+    line-height: 40px;
+  }
+  .main {
+    background-image: url("../../public/assets/Rectangle\ 1555.png");
+    height: 20rem;
+    width: 100%;
+  }
+  .overlay {
+    width: 100%;
+    height: 13rem;
+    display: flex;
+    background: rgba(255, 167, 92, 0.81);
+    opacity: 0.8;
+    position: absolute;
+    z-index: 2;
+  }
+  .overlaywritten {
+    display: flex;
+    flex-direction: row;
+    z-index: 3;
+    margin-top: 0.5rem;
+  }
+  .mainleft div {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.5rem;
+  }
+  .mainleft img {
+    width: 1rem;
+    height: 1rem;
+  }
+  .mainright div {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1rem;
+  }
+  .mainright img {
+    width: 0.8rem;
+    height: 0.8rem;
   }
 }

@@ -28,14 +28,15 @@ const Home = () => {
   return (
     <React.Fragment>
       <Navbar />
-      <video
-        src="./assets/1.mp4"
-        autoPlay={true}
-        muted
-        style={{ width: "100%", height: "50%" }}
-        loop
-        type="video/mp4"
-      />
+      <div className={classes.mainvideo}>
+        <video
+          src="./assets/1.mp4"
+          autoPlay={true}
+          muted
+          loop
+          type="video/mp4"
+        />
+      </div>
       <Box
         display={{ md: "block", xs: "none" }}
         sx={{
@@ -157,11 +158,9 @@ const Home = () => {
                   padding: "2% 10% 5% 10%",
                 }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud e xercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore <br />
+                Providing modular solutions for all people seeking short term
+                <br />
+                housing Earning revenue for people with free laying plots
               </Typography>
             </Box>
           </Grid>
@@ -220,11 +219,12 @@ const Home = () => {
                 padding: "0 5%",
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud e xercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore
+              {" "}
+              Our prefabricated, ready-to-use ‘movable habitable space’ is a
+              portable home that can be assembled at any firm land with ease and
+              time efficiency. A collapsible upper structure built on a
+              self-adjusting platform provides quick and cozy solutions to any
+              one looking for a short term but comfortable stay.
               <br />
             </Typography>
             <br />
@@ -249,21 +249,22 @@ const Home = () => {
           <br />
         </>
       </Grid>
-      <Grid item xs={12} md={12}>
-        <Typography
-          variant="h4"
-          component="span"
-          sx={{
-            display: { xs: "block", md: "block" },
-            color: "black",
-            textAlign: "center",
-          }}
-        >
-          How It Works?
-        </Typography>
-      </Grid>
+      <div className={classes.howitworks}>
+        <Grid item xs={12} md={12}>
+          <Typography
+            variant="h4"
+            component="span"
+            sx={{
+              display: { xs: "block", md: "block" },
+              color: "black",
+              textAlign: "center",
+            }}
+          >
+            How It Works?
+          </Typography>
+        </Grid>
 
-      {/* <Box
+        {/* <Box
           sx={{
             position: "relative",
             padding: "5% 0 0 0",
@@ -273,12 +274,12 @@ const Home = () => {
         >
           <Grid container spacing={0} sx={{ padding: "0" }}>
             <Grid item xs={12} md={6}> */}
-      <div className={classes.gotplot}>
-        <div className={classes.got}>
-          <CardClickable Photo="./assets/gotPlot.png" />
-        </div>
-        {/* </Grid> */}
-        {/* <Grid
+        <div className={classes.gotplot}>
+          <div className={classes.got}>
+            <CardClickable Photo="./assets/gotPlot.png" />
+          </div>
+          {/* </Grid> */}
+          {/* <Grid
               item
               xs={12}
               md={6}
@@ -288,17 +289,24 @@ const Home = () => {
                 display: { xs: "none", md: "block" },
               }}
             > */}
-        <div className={classes.got}>
-          <CardClickable Photo="./assets/needHome.png" />
+          <div className={classes.got}>
+            <CardClickable Photo="./assets/needHome.png" />
+          </div>
         </div>
-      </div>
-      <div className={classes.gotplotsbutton}>
-        <button onClick={intresetedhandler}>
-          I am intrested in letting my plot
-        </button>
-        <button onClick={buyinghandler}>
-          I am intrested in relocatalble modular home
-        </button>
+        <div className={classes.gotplotsbutton}>
+          <button onClick={intresetedhandler} className={classes.frame}>
+            <div>
+              <img src="/assets/Frame.png" />
+            </div>
+            I am intrested in letting my plot
+          </button>
+          <button onClick={buyinghandler} className={classes.frame}>
+            <div>
+              <img src="/assets/Frame (1).png" />
+            </div>
+            I am intrested in relocatalble modular home
+          </button>
+        </div>
       </div>
       {/* </Grid>
           </Grid>
@@ -330,7 +338,7 @@ const Home = () => {
       <p className={classes.smart}>Self sufficient and smart</p>
       <div className={classes.iot}>
         <div>
-          <img src="/assets/iott.png" className={classes.i} />
+          <img src="/assets/iott.png" />
         </div>
         <div>
           <img src="/assets/1.jpg" />
@@ -403,11 +411,10 @@ const Home = () => {
             padding: "0 2%",
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud e xercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore
+          Our concept of is to recognize and facilitate short stays with
+          products that can be owned as a “movable habitable space”. A distinct
+          conceptual idea is to delink ownership of “Habitable Space” and the
+          Land or “Plot” on which the habitable space is placed.
           <br />
         </Typography>
         <br />
