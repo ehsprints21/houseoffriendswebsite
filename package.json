@@ -4,6 +4,7 @@
   "description": "This is Hackathon Project",
   "main": "index.js",
   "scripts": {
+    "start": "react-scripts start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "dependencies": {
     "express": "^4.17.3",
     "vercel": "^28.5.5"
+  },
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
   }
 }
