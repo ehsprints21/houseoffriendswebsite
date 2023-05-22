@@ -1,4 +1,5 @@
 import "../App.css";
+import "./common.css";
 import Navbar from "../Components/CommonComponents/Navbar";
 import MailList from "../Components/MailList";
 import BottomBar from "../Components/CommonComponents/BottomBar";
@@ -13,7 +14,8 @@ import Button from "@mui/material/Button";
 import Faq from "../Components/Faq";
 import Sturdy from "../Components/CommonComponents/Sturdy";
 import classes from "../Modules/Home.module.css";
-import { useNavigate } from "react-router-dom";
+// import architectImg from "";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   let navigate = useNavigate();
@@ -28,16 +30,45 @@ const Home = () => {
   return (
     <React.Fragment>
       <Navbar />
-      <div className={classes.mainvideo}>
-        <video
-          src="./assets/1.mp4"
-          autoPlay={true}
-          muted
-          loop
-          type="video/mp4"
-        />
+      <div className=" main__container">
+        <div className="second__container">
+          <div className=" text__container">
+            <h1>Imagine a Home you can take ... anywhere</h1>
+            <h2>A Bilding system that is relocatable. 100% salvageable</h2>
+          </div>
+          <div className="input__container">
+            <input
+              type="email"
+              name="email"
+              className="email__input"
+              placeholder="Email"
+            />
+            <input
+              type="number"
+              name="phone"
+              className="phone__input"
+              placeholder=" Phone Number"
+            />
+            <input type="submit" value="STAY UPDATED" className="submit__btn" />
+          </div>
+        </div>
+        <div className={classes.mainvideo}>
+          <video
+            src="./assets/Compressed Big Tiny (1).mp4"
+            autoPlay={true}
+            muted
+            loop
+            type="video/mp4"
+          />
+        </div>
       </div>
-      <Box
+      <div className=" survey__container">
+        <h2>Tell us how and where you intend to use the modular home</h2>
+        <Link to="/" className="survey__link">
+          Take a survey
+        </Link>
+      </div>
+      {/* <Box
         display={{ md: "block", xs: "none" }}
         sx={{
           flexGrow: 1,
@@ -111,7 +142,7 @@ const Home = () => {
             </Box>
           </Grid>
         </Grid>
-      </Box>
+      </Box> */}
       <Box
         display={{ md: "none", xs: "block" }}
         sx={{
@@ -251,7 +282,7 @@ const Home = () => {
       </Grid>
       <div className={classes.howitworks}>
         <Grid item xs={12} md={12}>
-          <Typography
+          {/* <Typography
             variant="h4"
             component="span"
             sx={{
@@ -261,7 +292,7 @@ const Home = () => {
             }}
           >
             How It Works?
-          </Typography>
+          </Typography> */}
         </Grid>
 
         {/* <Box
@@ -275,11 +306,16 @@ const Home = () => {
           <Grid container spacing={0} sx={{ padding: "0" }}>
             <Grid item xs={12} md={6}> */}
         <div className={classes.gotplot}>
-          <div className={classes.got}>
-            <CardClickable Photo="./assets/gotPlot.png" />
-          </div>
-          {/* </Grid> */}
-          {/* <Grid
+          <div className=" first__container">
+            <div className="text__container">
+              <h3>How it works</h3>
+            </div>
+            <div className=" plot__container">
+              <div className={classes.got}>
+                <CardClickable Photo="./assets/gotPlot.png" />
+              </div>
+              {/* </Grid> */}
+              {/* <Grid
               item
               xs={12}
               md={6}
@@ -289,25 +325,35 @@ const Home = () => {
                 display: { xs: "none", md: "block" },
               }}
             > */}
-          <div className={classes.got}>
-            <CardClickable Photo="./assets/needHome.png" />
-          </div>
-        </div>
-        <div className={classes.gotplotsbutton}>
-          <button onClick={intresetedhandler} className={classes.frame}>
+              <div className={classes.got}>
+                <CardClickable Photo="./assets/needHome.png" />
+              </div>
+            </div>
+            <div className={classes.gotplotsbutton}>
+              {/* <button onClick={intresetedhandler} className={classes.frame}>
             <div>
               <img src="/assets/Frame.png" />
             </div>
             I am intrested in letting my plot
-          </button>
-          <button onClick={buyinghandler} className={classes.frame}>
-            <div>
-              <img src="/assets/Frame (1).png" />
+          </button> */}
+              <button onClick={buyinghandler} className={classes.frame}>
+                <div>
+                  <img src="/assets/Frame (1).png" />
+                </div>
+                I am intrested in relocatalble modular home
+              </button>
             </div>
-            I am intrested in relocatalble modular home
-          </button>
+          </div>
+          <div className="video__container">
+            <div className="container1"></div>
+            <div className="container2"></div>
+            <div className="container3"></div>
+          </div>
         </div>
       </div>
+      <section className=" architect__container">
+        <img src="./assets/architectImage.png" alt="" />
+      </section>
       {/* </Grid>
           </Grid>
         </Box> */}
@@ -341,7 +387,7 @@ const Home = () => {
           <img src="/assets/iott.png" />
         </div>
         <div>
-          <img src="/assets/1.jpg" />
+          <img src="/assets/1-min (2).jpg" />
         </div>
       </div>
       <p className={classes.iotcontent}>

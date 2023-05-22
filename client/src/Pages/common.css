@@ -1,0 +1,135 @@
+.main__container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 40px 40px;
+}
+
+.second__container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-right: 20px;
+}
+.text__container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.text__container > h1,
+h2 {
+  text-align: start;
+  width: 100%;
+}
+
+.text__container h1 {
+  font-size: 44px;
+  font-weight: 800;
+}
+
+.input__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #003459;
+  padding: 0px;
+  max-width: 600px;
+}
+
+.input__container > .email__input,
+.phone__input {
+  border: none;
+  border-right: 1px solid #003459;
+}
+
+.input__container > .submit__btn {
+  padding: 16px 30px;
+  cursor: pointer;
+  color: #ffff;
+  background-color: rgb(253, 166, 95);
+  border: none;
+  font-weight: 500;
+}
+.input__container > .submit__btn:hover {
+  background-color: rgb(253, 142, 95);
+  transition: all 0.3s ease-in;
+}
+
+.survey__container {
+  background-image: linear-gradient(to right, #001421, #003d69e5);
+  padding: 16px;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.survey__container h2 {
+  font-weight: 700;
+  color: rgb(210, 210, 210);
+  display: inline-block;
+  width: 60%;
+}
+.survey__container > .survey__link {
+  text-decoration: none;
+  color: #ffff;
+  background-color: #006ab6;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+.survey__container > .survey__link:hover {
+  background-color: #02538e;
+  transition: all 0.2s ease-in-out;
+}
+
+.first__container {
+  border: 1px solid #000000;
+  width: 60%;
+}
+
+.plot__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px 0px;
+}
+
+.text__container {
+  /* width: 50%; */
+  margin-inline: auto;
+}
+.text__container h3 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.video__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 30px;
+  padding-inline: 20px;
+}
+
+.container1,
+.container2,
+.container3 {
+  width: 400px;
+  height: 300px;
+  border: 1px solid #000000;
+}
+
+.architect__container {
+  margin-top: 40px;
+  width: 100%;
+  background-color: #001729;
+}
+.architect__container img {
+  width: 98vw;
+}

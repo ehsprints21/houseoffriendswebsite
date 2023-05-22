@@ -14,6 +14,9 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
+import "./common.css";
+import { maxWidth } from "@mui/system";
+
 // -----------------external css used here---------------------
 
 const ResponsiveAppBar = () => {
@@ -64,7 +67,11 @@ const ResponsiveAppBar = () => {
   return (
     <AppBar
       position="sticky"
-      sx={{ backgroundColor: "#fff", paddingLeft: "10%", paddingRight: "10%" }}
+      sx={{
+        backgroundColor: "#fff",
+        paddingLeft: "6%",
+        paddingRight: "6%",
+      }}
     >
       <Container maxWidth="xl">
         <Toolbar>
@@ -75,9 +82,11 @@ const ResponsiveAppBar = () => {
           >
             <a href="/">
               <img
-                src="../assets/hoffrTop.png"
-                height="70px"
+                src="../assets/bigTinyLogo.jpg"
+                height="30px"
+                width="150px"
                 alt="companyLogo"
+                className="img"
               />
             </a>
           </Typography>
@@ -163,6 +172,7 @@ const ResponsiveAppBar = () => {
                   onClick={handleCloseNavMenu}
                   sx={{
                     my: 2,
+                    mr: 5,
                     textTransform: "none",
                     color: "black",
                     display: "block",
