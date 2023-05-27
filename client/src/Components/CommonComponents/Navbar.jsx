@@ -83,8 +83,8 @@ const ResponsiveAppBar = () => {
             <a href="/">
               <img
                 src="../assets/bigTinyLogo.jpg"
-                height="30px"
-                width="150px"
+                height="40px"
+                width="250px"
                 alt="companyLogo"
                 className="img"
               />
@@ -159,7 +159,7 @@ const ResponsiveAppBar = () => {
             sx={{
               display: { xs: "none", md: "flex" },
               position: "relative",
-              left: "75%",
+              left: "65%",
             }}
           >
             {pages
@@ -190,7 +190,7 @@ const ResponsiveAppBar = () => {
             sx={{
               display: { xs: "none", md: "flex" },
               position: "relative",
-              left: "15%",
+              left: "10%",
             }}
           >
             {pages.slice(0, 4).map((page, index) => (

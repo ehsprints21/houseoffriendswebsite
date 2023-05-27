@@ -14,7 +14,6 @@ import Button from "@mui/material/Button";
 import Faq from "../Components/Faq";
 import Sturdy from "../Components/CommonComponents/Sturdy";
 import classes from "../Modules/Home.module.css";
-// import architectImg from "";
 import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -33,7 +32,7 @@ const Home = () => {
       <div className=" main__container">
         <div className="second__container">
           <div className=" text__container">
-            <h1>Imagine a Home you can take ... anywhere</h1>
+            <h1>Imagine a shelter you can take ... anywhere</h1>
             <h2>A Bilding system that is relocatable. 100% salvageable</h2>
           </div>
           <div className="input__container">
@@ -62,11 +61,13 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className=" survey__container">
-        <h2>Tell us how and where you intend to use the modular home</h2>
-        <Link to="/" className="survey__link">
-          Take a survey
-        </Link>
+      <div className=" survey__container__main">
+        <div className=" survey__container">
+          <p>Tell us how and where you intend to use the modular shelter</p>
+          <Link to="/" className="survey__link">
+            Take a survey
+          </Link>
+        </div>
       </div>
       {/* <Box
         display={{ md: "block", xs: "none" }}
@@ -336,18 +337,24 @@ const Home = () => {
             </div>
             I am intrested in letting my plot
           </button> */}
-              <button onClick={buyinghandler} className={classes.frame}>
-                <div>
-                  <img src="/assets/Frame (1).png" />
-                </div>
-                I am intrested in relocatalble modular home
+              <button onClick={buyinghandler} className="plot__button">
+                {/* <div>
+                  <img src="/assets/Frame (1).png" alt="Big tiny" />
+                </div> */}
+                I have a plot a let
               </button>
             </div>
           </div>
           <div className="video__container">
-            <div className="container1"></div>
-            <div className="container2"></div>
-            <div className="container3"></div>
+            <div className="container1">
+              <img src="/assets/house1.jpg" alt="" className="house__img" />
+            </div>
+            <div className="container2">
+              <img src="./assets/house2.jpg" alt="" className="house__img" />
+            </div>
+            <div className="container3">
+              <img src="./assets/house3.jpg" alt="" className="house__img" />
+            </div>
           </div>
         </div>
       </div>
@@ -479,7 +486,7 @@ const Home = () => {
         <br />
         <br />
       </Grid>
-      <div className={classes.faq}>
+      {/* <div className={classes.faq}>
         <Faq
           question={"What is the most popular / recognized category?"}
           answer={"lorem"}
@@ -508,7 +515,7 @@ const Home = () => {
           question={"What is the most popular / recognized category?"}
           answer={"lorem"}
         />
-      </div>
+      </div> */}
       {/* <MailList /> */}
       <BottomBar />
     </React.Fragment>
