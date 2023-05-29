@@ -172,6 +172,11 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  /* background-color: #ced3cd; */
+  /* background-color: #f8fdf6; */
+  background-color: #c5cac4;
+  background-image: linear-gradient(to right, #fffffb, #d7d8d7 30%, #fffffb);
+  padding: 30px 10px;
 }
 @media screen and (max-width: 910px) {
   .gotplotsbutton {

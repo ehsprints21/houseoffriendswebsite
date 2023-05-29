@@ -217,7 +217,11 @@ const Home = () => {
             <Typography
               variant="h4"
               component="span"
-              sx={{ display: { xs: "block", md: "block" }, color: "black" }}
+              sx={{
+                display: { xs: "block", md: "block" },
+                color: "black",
+                fontSize: "42px",
+              }}
             >
               Product
             </Typography>
@@ -227,15 +231,15 @@ const Home = () => {
               component="span"
               sx={{
                 display: { xs: "none", md: "block" },
-                fontSize: "17px",
+                fontSize: "24px",
                 color: "text.secondary",
                 textAlign: "left",
                 padding: "0 15%",
               }}
             >
               Our prefabricated, ready-to-use ‘movable habitable space’ is a
-              portable home that can be assembled at any firm land with ease and
-              time efficiency. A collapsible upper structure built on a
+              portable shelter that can be assembled at any firm land with ease
+              and time efficiency. A collapsible upper structure built on a
               self-adjusting platform provides quick and cozy solutions to any
               one looking for a short term but comfortable stay.
               <br />
@@ -253,14 +257,14 @@ const Home = () => {
             >
               {" "}
               Our prefabricated, ready-to-use ‘movable habitable space’ is a
-              portable home that can be assembled at any firm land with ease and
-              time efficiency. A collapsible upper structure built on a
+              portable shelter that can be assembled at any firm land with ease
+              and time efficiency. A collapsible upper structure built on a
               self-adjusting platform provides quick and cozy solutions to any
               one looking for a short term but comfortable stay.
               <br />
             </Typography>
             <br />
-            <Button
+            {/* <Button
               variant="secondary"
               onClick={() => {
                 navigate("/contact");
@@ -269,7 +273,18 @@ const Home = () => {
               sx={{ backgroundColor: "#ffc13b", width: "50%", height: "100%" }}
             >
               Contact Us to Know More
-            </Button>
+            </Button> */}
+            <button
+              onClick={() => {
+                navigate("/contact");
+              }}
+              className="product__button"
+            >
+              {/* <div>
+                  <img src="/assets/Frame (1).png" alt="Big tiny" />
+                </div> */}
+              Contact Us to Know More
+            </button>
           </Container>
         </Grid>
       </div>
@@ -430,6 +445,7 @@ const Home = () => {
             display: { xs: "block", md: "block" },
             color: "black",
             textAlign: "center",
+            fontSize: "40px",
           }}
         >
           Our Mission
@@ -441,7 +457,7 @@ const Home = () => {
           component="span"
           sx={{
             display: { xs: "none", md: "block" },
-            fontSize: "17px",
+            fontSize: "24px",
             color: "text.secondary",
             textAlign: "center",
             padding: "0 15%",
@@ -478,7 +494,7 @@ const Home = () => {
           onClick={() => {
             navigate("/aboutUs");
           }}
-          sx={{ backgroundColor: "#ffc13b" }}
+          sx={{ backgroundColor: "#000000", color: "#ffffff" }}
         >
           Know More
         </Button>

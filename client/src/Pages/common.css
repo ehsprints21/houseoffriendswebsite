@@ -49,15 +49,14 @@ h2 {
 .input__container > .submit__btn {
   padding: 16px 30px;
   cursor: pointer;
-  color: #ffff;
-  background-color: rgb(253, 166, 95);
+  color: #ffffff;
+  background-color: #35b4bd;
   border: none;
-  font-weight: 500;
+  font-weight: 600;
 }
-.input__container > .submit__btn:hover {
-  background-color: rgb(253, 142, 95);
-  transition: all 0.3s ease-in;
-}
+/* .input__container > .submit__btn:hover {
+
+} */
 
 .survey__container__main {
   background-image: linear-gradient(to right, #001421, #003d69e5);
@@ -151,6 +150,27 @@ h2 {
 .house__img {
   width: 547px;
   height: 310px;
+}
+
+.product__button {
+  background-color: #000000;
+  padding: 12px;
+  /* border-radius: 8px; */
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 2rem;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.product__button:hover {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #01518a;
+  transition: all 0.2s ease-in;
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1300px) {
