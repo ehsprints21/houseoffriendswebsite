@@ -19,7 +19,7 @@ const Footer = () => {
             component="span"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color:'black', fontSize:'13px' }}
           >
-            Copyright 2022. Dichroic Labs LLP All Rights Reserved. 
+            Copyright 2024. Bigtyni Venturesa LLP All Rights Reserved. 
           </Typography>
           <Box sx={{ flexGrow: 1, flexDirection: 'row-reverse' ,display: { xs: 'none', md: 'flex' } }}>
             {pages.slice(0).reverse().map((page, index) => (
@@ -42,7 +42,7 @@ const Footer = () => {
             component="span"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color:'black', fontSize:'13px' }}
           >
-            Copyright 2022. Dichroic Labs LLP All Rights Reserved. 
+            Copyright 2024. Bigtyni Venturesa LLP All Rights Reserved. 
           </Typography> 
         </Box>
         

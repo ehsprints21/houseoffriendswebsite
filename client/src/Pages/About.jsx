@@ -49,7 +49,7 @@ const About = () =>{
                             component="div"
                             sx={{ mr: 2, display: { xs: 'flex', md: 'flex' }, padding:'3% 5%', textAlign:'left', color:'text.secondary' }}
                             >
-                                uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.<br /><br />
+                                We are a team of architects and engineers witha passion for innovation and we are working a revolutionary idea of relocatable shelter.<br /><br />
                                 
                         </Typography>
                     
