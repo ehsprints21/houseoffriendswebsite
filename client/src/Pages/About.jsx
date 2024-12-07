@@ -1,7 +1,6 @@
 import '../App.css';
 import Navbar from '../Components/CommonComponents/Navbar';
 import BottomBar from '../Components/CommonComponents/BottomBar';
-import Footer from '../Components/CommonComponents/Footer';
 import Card from '../Components/Card';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -10,15 +9,23 @@ import Grid from '@mui/material/Grid';
 
 const About = () => {
 
-    const handleDownload = () => {
-        const fileURL = './Company Deck_BIGTYNI.pdf';
+    const fileList = [
+        { name: 'Bigtyni_Pitch Deck.pdf', path: '/Bigtyni_Pitch Deck.pdf' },
+        { name: 'Company_Deck_BIGTYNI.pdf', path: '/Company_Deck_BIGTYNI.pdf' },
+    ];
+
+    const downloadFile = (file) => {
         const anchor = document.createElement('a');
-        anchor.href = fileURL;
-        anchor.download = 'Brochure.pdf';
+        anchor.href = file.path;
+        anchor.download = file.name;
         document.body.appendChild(anchor);
         anchor.click();
         document.body.removeChild(anchor);
-    }
+    };
+
+    const downloadAllFiles = () => {
+        fileList.forEach(downloadFile);
+    };
 
     return (
         <div>
@@ -51,9 +58,9 @@ const About = () => {
                     <Typography variant="h5" component="div" sx={{ padding: '3% 5%', textAlign: 'center', color: '#FFB923' }}>
                         <p className='__para'>
                             Get Brochure
-                            <button className='__button' title='Brochure' onClick={handleDownload}>
+                            <button className='__button' title='Brochure' onClick={downloadAllFiles}>
                                 <p className="btn2">
-                                    <span class="spn2">Download</span>
+                                    <span className="spn2">Download</span>
                                 </p>
                             </button>
                         </p>
