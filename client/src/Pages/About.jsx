@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid';
 const About = () => {
 
     const fileList = [
-        { name: 'Bigtyni_Pitch Deck.pdf', path: '/Bigtyni_Pitch Deck.pdf' },
+        // { name: 'Bigtyni_Pitch Deck.pdf', path: '/Bigtyni_Pitch Deck.pdf' },
         { name: 'Company_Deck_BIGTYNI.pdf', path: '/Company_Deck_BIGTYNI.pdf' },
     ];
 
@@ -65,7 +65,6 @@ const About = () => {
                             </button>
                         </p>
                     </Typography>
-                    <br /><br /><br />
                     <Grid item xs={12} md={12}>
                         <Typography variant="h5" component="div" sx={{ mr: 2, padding: '3% 5%', textAlign: 'center', color: '#FFB923' }}>
                             Our Key Virtues
