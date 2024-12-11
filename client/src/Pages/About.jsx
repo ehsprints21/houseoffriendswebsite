@@ -10,8 +10,7 @@ import Grid from '@mui/material/Grid';
 const About = () => {
 
     const fileList = [
-        // { name: 'Bigtyni_Pitch Deck.pdf', path: '/Bigtyni_Pitch Deck.pdf' },
-        { name: 'Company_Deck_BIGTYNI.pdf', path: '/Company_Deck_BIGTYNI.pdf' },
+        { name: 'Company Deck_BIGTYNI.pdf', path: '/Company Deck_BIGTYNI.pdf' },
     ];
 
     const downloadFile = (file) => {
