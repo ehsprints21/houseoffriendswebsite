@@ -3,10 +3,9 @@
   flex-direction: column;
   width: 21rem;
   align-items: center;
-
   background: #e8e8e8;
   border-radius: 30px;
-  height: 20rem;
+  height: fit-content;
   margin-left: 2rem;
   margin-right: 1rem;
   margin-top: 2rem;
@@ -20,9 +19,10 @@
   font-family: "Verdana";
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 29px;
   text-align: center;
-
   color: #000000;
+  margin-top: .5em;
+  padding: 0.1em 1.2em;
 }

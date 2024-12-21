@@ -14,20 +14,11 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 const BottomBar = () => {
   return (
     <>
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: "white", padding: "3% 7%" }}
-      >
+      <AppBar position="static" sx={{ backgroundColor: "white", padding: "3% 7%" }} >
         <Container maxWidth="xl">
           <Grid container spacing={2}>
             <Grid item xs={12} md={4} sx={{ position: "relative" }}>
-              <img
-                src="../assets/bigTinyLogo.jpg"
-                alt="titlePhoto"
-                height="40px"
-                width="250px"
-                className="img"
-              />
+              <img src="../assets/bigTinyLogo.jpg" alt="titlePhoto" height="40px" width="250px" className="img" />
               <br />
               <FacebookIcon sx={{ color: "black" }} />
               <TwitterIcon sx={{ color: "black" }} />
@@ -35,7 +26,7 @@ const BottomBar = () => {
               <YouTubeIcon sx={{ color: "black" }} />
               {/* <img src="./assets/behance-fill.svg" alt="behance link" /> */}
             </Grid>
-            <Grid item xs={4} md={2}>
+            <Grid item xs={6} md={2}>
               <Typography
                 component="div"
                 variant="h5"
@@ -94,7 +85,7 @@ const BottomBar = () => {
                 <br />
               </Typography>
             </Grid>
-            <Grid item xs={4} md={2}>
+            <Grid item xs={6} md={2}>
               <Typography
                 component="div"
                 variant="h5"
@@ -131,7 +122,7 @@ const BottomBar = () => {
                 <br />
               </Typography>
             </Grid>
-            <Grid item xs={4} md={2}>
+            <Grid item xs={6} md={2}>
               <Typography
                 component="div"
                 variant="h5"
@@ -176,7 +167,7 @@ const BottomBar = () => {
                 <br />
               </Typography>
             </Grid>
-            <Grid item xs={4} md={2}>
+            <Grid item xs={6} md={2}>
               <Typography
                 component="div"
                 variant="h5"

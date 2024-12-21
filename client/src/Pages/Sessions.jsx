@@ -140,16 +140,16 @@ const Listing = () => {
       <Navbar />
       <div className={classes.sessionnav}>
         <div className={classes.hamburger}>
-          <img src="/assets/Vector (2).png" />
+          <img src="/assets/Vector (2).png" alt="" />
         </div>
         <div className={classes.search}>
           <Search />
         </div>
         <div className={classes.icon}>
-          <img src="/assets/Vector.png" />
+          <img src="/assets/Vector.png" alt="" />
         </div>
         <div className={classes.icon}>
-          <img src="/assets/Vector (1).png" />
+          <img src="/assets/Vector (1).png" alt="" />
         </div>
       </div>
       <div className={classes.filters}>
@@ -161,15 +161,14 @@ const Listing = () => {
 
       <Grid>
         {/* <Grid item xs={12} md={12}>
-                        
-                        <Typography
-                            variant="h5"
-                            component="div"
-                            sx={{ mr: 2,  padding:'1% 2%', textAlign:'center', color:'#FFB923' }}
-                            >
-                                Plots
-                        </Typography>
-            </Grid> */}
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{ mr: 2, padding: '1% 2%', textAlign: 'center', color: '#FFB923' }}
+          >
+            Plots
+          </Typography>
+        </Grid> */}
         {/* <Box width={"100%"} sx={{ padding: "3% 10%" }}>
           <Grid container spacing={1}>
             <Grid item xs={3} md={3}>
@@ -186,22 +185,12 @@ const Listing = () => {
         </Box> */}
         <div className={classes.container}>
           {listings.length === 0 ? (
-            <MediaCard
-              photo={
-                "https://res.cloudinary.com/dhhx4amh9/image/upload/v1654141765/vkdo18urwpimv6ibetv2.png"
-              }
-              rate={"listings "}
-              title={"coming soon"}
-              city={""}
-            />
+            <MediaCard photo={"https://res.cloudinary.com/dhhx4amh9/image/upload/v1654141765/vkdo18urwpimv6ibetv2.png"} rate={"listings "} title={"coming soon"} city={""} />
           ) : (
             <>
               {listings.slice(0, number).map((item, index) => (
                 <div key={index}>
-                  <Link
-                    style={{ textDecoration: "none" }}
-                    to={`/Product/${item._id}`}
-                  >
+                  <Link style={{ textDecoration: "none" }} to={`/Product/${item._id}`} >
                     <MediaCard
                       photo={item.titlePhoto}
                       rate={"₹ " + item.rate}
