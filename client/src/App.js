@@ -18,9 +18,7 @@ import FileUpload from "./Pages/FileUpload";
 import Form from "./Pages/Form";
 import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
-
 import { useDispatch, useSelector } from "react-redux";
 
 const theme = createTheme({

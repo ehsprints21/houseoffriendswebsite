@@ -1,16 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .main__container {
   display: flex;
-  flex-direction: row;
-  margin: 20px 40px 40px;
+  justify-content: space-between;
+  gap: 1em;
+  margin: 20px 30px 40px;
 }
 
 .second__container {
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding-right: 20px;
+  justify-content: space-around;
 }
+
 .text__container {
   display: flex;
   flex-direction: column;
@@ -18,7 +25,7 @@
   align-items: center;
 }
 
-.text__container > h1,
+.text__container>h1,
 h2 {
   text-align: start;
   width: 100%;
@@ -32,21 +39,26 @@ h2 {
 .input__container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
-  border: 1px solid #003459;
   padding: 0px;
   max-width: 600px;
 }
 
-.input__container > .email__input,
+.input__container>.email__input,
 .phone__input {
-  border: none;
-  border-right: 1px solid #003459;
+  border: 1px solid grey;
+  outline: none;
+  height: 48px;
+  flex-grow: 1;
+  border-radius: 5px;
+  padding-left: 1em;
+  font-size: 16px;
 }
 
-.input__container > .submit__btn {
+.input__container>.submit__btn {
   padding: 16px 30px;
   cursor: pointer;
   color: #ffffff;
@@ -54,32 +66,28 @@ h2 {
   border: none;
   font-weight: 600;
 }
-/* .input__container > .submit__btn:hover {
 
-} */
-
-.survey__container__main {
-  background-image: linear-gradient(to right, #001421, #003d69e5);
-  padding: 16px;
-  margin-bottom: 80px;
-}
 .survey__container {
+  background-image: linear-gradient(to right, #001421, #003d69e5);
+  padding: 18px;
+  margin-bottom: 2em;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 20px;
-  /* width: 80%; */
   margin-inline: auto;
   padding-inline: 60px;
 }
+
 .survey__container p {
   font-weight: 800;
-  font-size: 36px;
+  font-size: 28px;
   color: rgb(210, 210, 210);
   margin: 0;
-  /* display: inline-block; */
 }
-.survey__container > .survey__link {
+
+.survey__container>.survey__link {
   text-decoration: none;
   color: #ffff;
   background-color: #006ab6;
@@ -88,28 +96,54 @@ h2 {
   margin-top: 4px;
   white-space: nowrap;
 }
-.survey__container > .survey__link:hover {
+
+.survey__container>.survey__link:hover {
   background-color: #02538e;
   transition: all 0.2s ease-in-out;
 }
 
-.first__container {
-  border: 1px solid #000000;
-  width: 60%;
+.__main_Container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .plot__container {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  gap: 20px;
-  padding: 20px 0px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.plot__container img {
+  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.plot__button {
+  background-color: #01518a;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  margin-top: 3.5rem;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .text__container {
-  /* width: 50%; */
   margin-inline: auto;
 }
+
 .text__container h3 {
   font-size: 36px;
   font-weight: 700;
@@ -120,32 +154,27 @@ h2 {
   flex-direction: column;
   justify-content: space-around;
   gap: 30px;
-  padding-inline: 20px;
-  width: 40%;
+  flex-wrap: wrap;
+  padding: 1em;
 }
 
-/* .container1,
-.container2,
-.container3 {
-  width: 400px;
-  height: 287px;
-  border: 1px solid #000000;
-} */
+.house__img {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
 
 .architect__container {
   margin-top: 40px;
   width: 100%;
   background-color: #001729;
 }
+
 .architect__container img {
   width: 98vw;
 }
-/* 
+
 .plot__button {
-  background-color: #006ab6;
-  padding: 12px;
-  border-radius: 6px;
-} */
+  width: 12em;
+}
 
 .house__img {
   width: 547px;
@@ -155,7 +184,6 @@ h2 {
 .product__button {
   background-color: #000000;
   padding: 12px;
-  /* border-radius: 8px; */
   font-family: "Lato";
   font-style: normal;
   font-weight: 600;
@@ -166,6 +194,7 @@ h2 {
   cursor: pointer;
   margin-bottom: 1rem;
 }
+
 .product__button:hover {
   color: #000000;
   background-color: #ffffff;
@@ -179,9 +208,50 @@ h2 {
     height: 300px;
   }
 }
+
 @media screen and (max-width: 1200px) {
   .house__img {
     width: 340px;
     height: 275px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .main__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .second__container {
+    height: 22em;
+    width: 100%;
+  }
+
+  .text__container h1 {
+    font-size: 2rem;
+  }
+  .second__container{
+    align-items: center;
+  }
+
+  .input__container>.email__input,
+  .phone__input {
+    width: 100%;
+  }
+.survey__container p {
+  font-size: 3vw;
+}
+  .plot__button {
+    color: rgb(255, 255, 255);
+  }
+
+  .plot__container img {
+    width: 40vw;
+  }
+
+  .house__img {
+    width: 80vw;
+    height: 50vh;
   }
 }
