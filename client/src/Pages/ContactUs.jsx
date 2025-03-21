@@ -37,7 +37,7 @@ const Contact = () => {
                 <PinDropIcon sx={{ position: "relative", top: "5px" }} />{" "}India
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ fontSize: 14 }} >
-                <CallIcon sx={{ position: "relative", top: "5px" }} /> +91 626 524 6491{" "}
+                <CallIcon sx={{ position: "relative", top: "5px" }} /> +91 99006 53076{" "}
               </Typography>
             </CardContent>
           </Card>
