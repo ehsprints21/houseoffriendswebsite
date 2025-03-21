@@ -33,7 +33,7 @@ const Home = () => {
         <div className="second__container">
           <div className=" text__container">
             <h1>Imagine a shelter you can take ... anywhere</h1>
-            <h2>A Bilding system that is relocatable. 100% salvageable</h2>
+            <h2>A Building system that is relocatable. 100% salvageable</h2>
           </div>
           <div className="input__container">
             <input type="email" name="email" className="email__input" placeholder="Email" />
@@ -294,7 +294,7 @@ const Home = () => {
         <br />
         <br />
         <Typography variant="object2" component="span" sx={{ display: { xs: "none", md: "block" }, fontSize: "24px", color: "text.secondary", textAlign: "center", padding: "0 15%", }} >
-          Our concept of is to recognize and facilitate short stays with
+          Our concept is to recognize and facilitate short stays with
           products that can be owned as a “movable habitable space”. A distinct
           conceptual idea is to delink ownership of “Habitable Space” and the
           Land or “Plot” on which the habitable space is placed.
